@@ -5,15 +5,15 @@ This project is a modified clone of the [Stanford Redbase.](https://web.stanford
 Redbase is divided into four components:
 
 ```
-                                      +----------------------------------------+
-                                      |            Query Language              | 
-                                      +----------------------------------------+
-                                      |           System Management            |
-                                      +-------------------+--------------------+
-                  Add R-Trees here--->|     Indexes       |  Record Management |
-                                      +-------------------+--------------------+
-                                      |              Paged File                |
-                                      +----------------------------------------+
+                    +----------------------------------------+
+                    |            Query Language              | 
+                    +----------------------------------------+
+                    |           System Management            |
+                    +-------------------+--------------------+
+Add R-Trees here--->|     Indexes       |  Record Management |
+                    +-------------------+--------------------+
+                    |              Paged File                |
+                    +----------------------------------------+
 ```
 1. **Paged File** - The PF component provides facilities for higher-level client components to perform file I/O in terms of pages. In the PF component, methods are provided to create, destroy, open, and close paged files, to scan through the pages of a given file, to read a specific page of a given file, to add and delete pages of a given file, and to obtain and release pages for scratch use. It also implements the buffer pool for use by the other componenets. The C++ API for the PF component is available [here](https://web.stanford.edu/class/cs346/2015/redbase-pf.html). You do not need to make any changes at this layer.
 
