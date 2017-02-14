@@ -48,7 +48,6 @@ git clone git@github.com:PayasR/redbase.git
 
 **Build the code**
 
-Only out-of-source builds are allowed.
 ```
 cd redbase
 mkdir build
@@ -56,6 +55,7 @@ cd build
 cmake ..
 make
 ```
+
 
 **Test**
 
