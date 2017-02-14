@@ -1,9 +1,5 @@
-## Redbase
 
-### Markdown
-
-
-```markdown
+``
 **Clone the repository**
 git clone git@github.com:PayasR/redbase.git 
 
