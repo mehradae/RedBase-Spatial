@@ -53,4 +53,4 @@ s_num                [+\-]?{num}
 <<EOF>>              {return T_EOF;}
 .                    {printf("illegal character [%c]\n", yytext[0]);}
 %%
-#include "scanhelp.c"
+#include "../src/scanhelp.c"

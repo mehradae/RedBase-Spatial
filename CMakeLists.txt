@@ -3,7 +3,7 @@
 # 2017: Migrated from vanilla Make to CMake. 
 # 	TODO: Check windows builds
 
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.8.8)
 project (Redbase)
 
 # Set compiler parameters
@@ -63,11 +63,32 @@ set(IX_SOURCES
 		src/ix_error.cc
 	)
 set (PARSER_SOURCES
-		src/scan.cc
-		src/parse.cc
+#		src/scan.c
+#		src/parse.c
 		src/nodes.cc
 		src/interp.cc
 	)
+
+# Handle Flex/Bison for Query Parser
+#FIND_PACKAGE(BISON REQUIRED)
+#SET(BisonOutput "src/parse.c")
+#IF(BISON_FOUND)
+#	ADD_CUSTOM_COMMAND(
+#		OUTPUT ${BisonOutput}
+#		COMMAND ${BISON_EXECUTABLE}
+#				--defines = src/y.tab.h
+#				--output = ${BisonOutput}
+#				--yacc
+#				parse.y
+#	)
+#ENDIF()
+FIND_PACKAGE(BISON REQUIRED)
+BISON_TARGET(MyParser src/parse.y ${CMAKE_CURRENT_BINARY_DIR}/parse.cpp)
+
+	FIND_PACKAGE(FLEX REQUIRED)
+	FLEX_TARGET(MyScanner src/scan.l ${CMAKE_CURRENT_BINARY_DIR}/scan.cpp)
+
+ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 
 # Create libraries
 add_library(pf STATIC "${PF_SOURCES}")
@@ -75,25 +96,14 @@ add_library(rm STATIC "${RM_SOURCES}")
 add_library(sm STATIC "${SM_SOURCES}")
 add_library(ql STATIC "${QL_SOURCES}")
 add_library(ix STATIC "${IX_SOURCES}")
-add_library(parser STATIC "${PARSER_SOURCES}")
+add_library(parser STATIC "${PARSER_SOURCES}" ${BISON_MyParser_OUTPUTS} ${FLEX_MyScanner_OUTPUTS})
 
 # Link the Library calls
-target_link_libraries(rm pf sm ql ix parser)
+target_link_libraries(rm pf sm ql ix parser) 
 target_link_libraries(sm rm ix pf parser)
 target_link_libraries(ql sm)
 target_link_libraries(ix rm)
 target_link_libraries(parser pf)
-
-# Handle Flex/Bison for Query Parser
-FIND_PACKAGE(BISON REQUIRED)
-SET(BisonOutput src/parse.c)
-IF(BISON_FOUND)
-	ADD_CUSTOM_COMMAND
-	(
-		
-	)
-ENDIF()
-
 
 
 # Compile shells
@@ -105,14 +115,4 @@ add_executable(dbdestroy src/dbdestroy.cc)
 target_link_libraries(redbase pf rm sm ql ix parser)
 target_link_libraries(dbcreate pf rm sm ql ix parser)
 target_link_libraries(dbdestroy pf rm sm ql ix parser)
-IF(BISON_FOUND)
-    ADD_CUSTOM_COMMAND(
-      OUTPUT 
-      COMMAND 
-              --defines=/src/rcdgen/tokens.h
-              --output=
-              /src/rcdgen/parser.y
-      COMMENT Generating parser.cpp
-    )
-ENDIF()
 
