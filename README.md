@@ -34,15 +34,20 @@ Add R-Trees here--->|     Indexes       |  Record Management |
 
 **Install the dependencies**
 
-```sudo apt-get install flex bison g++ g++-multilib git cmake make ```
+```
+sudo apt-get install flex bison g++ g++-multilib git cmake make 
+```
 
 
 **Clone repository**
 
-```git clone git@github.com:PayasR/redbase.git ```
+```
+git clone git@github.com:PayasR/redbase.git 
+```
 
 
 **Build the code**
+
 Only out-of-source builds are allowed.
 ```
 cd redbase
