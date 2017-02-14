@@ -75,7 +75,7 @@ select * from data;
 
 ### Submission
 - You are to work in groups of two. 
-- Please sign up at https://docs.google.com/a/ucr.edu/spreadsheets/d/1vCCsw-hrSrAbeOQD2y_U9wIb-gayfbmVCeLJdeYUcvM/edit?usp=sharing to let us know about who you're working with. 
+- Please sign up [here](https://docs.google.com/a/ucr.edu/spreadsheets/d/1vCCsw-hrSrAbeOQD2y_U9wIb-gayfbmVCeLJdeYUcvM/edit?usp=sharing) to let us know about who you're working with. 
 - Deadline for submission is 7th March, 2017 12:00AM.
 
 ### Some other comments
