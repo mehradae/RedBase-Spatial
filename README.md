@@ -1,5 +1,5 @@
 ### Overview
-This project is a modified clone of the [Stanford Redbase.](https://web.stanford.edu/class/cs346/2015/redbase.html). We'll be working to implement the Indexing Component to add an [R-Tree](http://dl.acm.org/citation.cfm?id=602266) index to it. The system is written in C++
+This project is a modified clone of the [Stanford Redbase.](https://web.stanford.edu/class/cs346/2015/redbase.html). We'll be working to implement the Indexing Component to add an [R-Tree](http://dl.acm.org/citation.cfm?id=602266) index to it. The system is written in C++. Use of C++11/14 is allowed.
 
 ### Structure
 Redbase is divided into four components:
