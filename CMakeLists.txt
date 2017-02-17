@@ -3,7 +3,7 @@
 # 2017: Migrated from vanilla Make to CMake. 
 # 	TODO: Check windows builds
 
-cmake_minimum_required (VERSION 2.8.8)
+cmake_minimum_required (VERSION 3.5.2)
 project (Redbase)
 
 # Set compiler parameters
@@ -22,7 +22,7 @@ set(PF_SOURCES
 		src/pf_buffermgr.cc 
 		src/pf_error.cc
 		src/pf_filehandle.cc 
-        src/pf_pagehandle.cc 
+		src/pf_pagehandle.cc 
 		src/pf_hashtable.cc
 		src/pf_manager.cc
         src/pf_statistics.cc
@@ -50,7 +50,7 @@ set(QL_SOURCES
 		src/ql_manager.cc 
 		src/ql_node.cc 
 		src/ql_nodeproj.cc 
-		src/ql_noderel.cc 
+		src/ql_noderel.cc
 		src/ql_nodejoin.cc 
 		src/ql_nodesel.cc 
 		src/qo_manager.cc
@@ -63,30 +63,16 @@ set(IX_SOURCES
 		src/ix_error.cc
 	)
 set (PARSER_SOURCES
-#		src/scan.c
-#		src/parse.c
 		src/nodes.cc
 		src/interp.cc
 	)
 
 # Handle Flex/Bison for Query Parser
-#FIND_PACKAGE(BISON REQUIRED)
-#SET(BisonOutput "src/parse.c")
-#IF(BISON_FOUND)
-#	ADD_CUSTOM_COMMAND(
-#		OUTPUT ${BisonOutput}
-#		COMMAND ${BISON_EXECUTABLE}
-#				--defines = src/y.tab.h
-#				--output = ${BisonOutput}
-#				--yacc
-#				parse.y
-#	)
-#ENDIF()
 FIND_PACKAGE(BISON REQUIRED)
 BISON_TARGET(MyParser src/parse.y ${CMAKE_CURRENT_BINARY_DIR}/parse.cpp)
 
-	FIND_PACKAGE(FLEX REQUIRED)
-	FLEX_TARGET(MyScanner src/scan.l ${CMAKE_CURRENT_BINARY_DIR}/scan.cpp)
+FIND_PACKAGE(FLEX REQUIRED)
+FLEX_TARGET(MyScanner src/scan.l ${CMAKE_CURRENT_BINARY_DIR}/scan.cpp)
 
 ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 
