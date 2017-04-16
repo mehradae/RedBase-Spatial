@@ -13,7 +13,7 @@
 #include <sys/types.h>
 #include "redbase.h"
 #include "parser_internal.h"
-#include "y.tab.h"
+#include "parse.hpp"
 
 /*
  * total number of nodes available for a given parse-tree

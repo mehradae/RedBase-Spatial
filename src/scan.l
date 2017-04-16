@@ -11,7 +11,7 @@
 #include <string.h>
 #include "redbase.h"          /* parse.h needs the definition of real */
 #include "parser_internal.h"  /* y.tab.h needs the definition of NODE */
-#include "y.tab.h"
+#include "parse.hpp"
 
 static int get_id(char *s);   /* defined in scanhelp.c */
 static char *get_qstring(char *qstring, int len);
@@ -39,6 +39,8 @@ s_num                [+\-]?{num}
                              return T_QSTRING;}
 \"([^\"\n]|(\"\"))*\n       {printf("newline in string constant\n");}
 {letter}({letter}|{digit}|_)*   {return get_id(yylval.sval = yytext);}
+({s_num}\.{num}\,{s_num}\.{s_num}\,{s_num}\.{s_num},{s_num},{s_num})	{sscanf(yytext, "%f,%f,%f,%f", &yylval.mval.p[0], &yylval.mval.p[1], &yylval.mval.p[2], &yylval.mval.p[3]);
+																			return T_MBR;} 
 "<"                  {return T_LT;}
 "<="                 {return T_LE;}
 ">"                  {return T_GT;}

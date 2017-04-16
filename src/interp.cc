@@ -13,7 +13,7 @@
 #include <sys/types.h>
 #include "redbase.h"
 #include "parser_internal.h"
-#include "y.tab.h"
+#include "parse.hpp"
 
 #include "sm.h"
 #include "ql.h"
@@ -446,6 +446,8 @@ static void mk_value(NODE *node, Value &value)
       case STRING:
          value.data = (void *)node->u.VALUE.sval;
          break;
+	  case MBR:
+		 value.data = (void *)&node->u.VALUE.mval;
    }
 }
 
@@ -481,6 +483,10 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
             *type = FLOAT;
             *len = sizeof(float);
             break;
+		 case 'm':
+			*type = MBR;
+			*len = sizeof(V_MBR);
+			break;
          case 's':
          case 'c':
             return E_NOLENGTH;
