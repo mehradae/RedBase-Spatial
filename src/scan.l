@@ -38,10 +38,8 @@ s_num                [+\-]?{num}
 \"([^\"\n]|(\"\"))*\"       {yylval.sval = get_qstring(yytext, yyleng);
                              return T_QSTRING;}
 \"([^\"\n]|(\"\"))*\n       {printf("newline in string constant\n");}
-{letter}({letter}|{digit}|_)*   {return get_id(yylval.sval = yytext);}
-({s_num}\.{num}\,{s_num}\.{s_num}\,{s_num}\.{s_num},{s_num},{s_num})	{sscanf(yytext, "%f,%f,%f,%f", &yylval.mval.p[0], &yylval.mval.p[1], &yylval.mval.p[2], &yylval.mval.p[3]);
-																			return T_MBR;} 
-"<"                  {return T_LT;}
+{letter}({letter}|{digit}|_)*       {return get_id(yylval.sval = yytext);}
+"<"                   {return T_LT;}
 "<="                 {return T_LE;}
 ">"                  {return T_GT;}
 ">="                 {return T_GE;}

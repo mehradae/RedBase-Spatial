@@ -1,18 +1,14 @@
-# Author: Payas
-# E-mail: payas.rajan@email.ucr.edu
-# 2017: Migrated from vanilla Make to CMake. 
-# 	TODO: Check windows builds
-
 cmake_minimum_required (VERSION 3.5.2)
 project (Redbase)
 
 # Set compiler parameters
-set(CMAKE_C_COMPILER gcc)
+set(CMAKE_C_COMPILER g++)
 set(CMAKE_CXX_COMPILER g++)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# Payas: Required to print statistics from the PF Layer.  DONOT TOUCH.
+# Required to print statistics from the PF Layer.
 add_definitions(-DPF_STATS)
+
 
 # Include directories
 include_directories(include)
@@ -25,7 +21,7 @@ set(PF_SOURCES
 		src/pf_pagehandle.cc 
 		src/pf_hashtable.cc
 		src/pf_manager.cc
-        src/pf_statistics.cc
+		src/pf_statistics.cc
 		src/statistics.cc
 	)
 
@@ -33,7 +29,7 @@ set(RM_SOURCES
 		src/rm_manager.cc 
 		src/rm_filehandle.cc 
 		src/rm_record.cc 
-        src/rm_filescan.cc 
+	        src/rm_filescan.cc 
 		src/rm_error.cc 
 		src/rm_rid.cc
 	)
@@ -69,10 +65,10 @@ set (PARSER_SOURCES
 
 # Handle Flex/Bison for Query Parser
 FIND_PACKAGE(BISON REQUIRED)
-BISON_TARGET(MyParser src/parse.y ${CMAKE_CURRENT_BINARY_DIR}/parse.cpp)
+BISON_TARGET(MyParser src/parse.y ${CMAKE_SOURCE_DIR}/src/parse.cpp)
 
 FIND_PACKAGE(FLEX REQUIRED)
-FLEX_TARGET(MyScanner src/scan.l ${CMAKE_CURRENT_BINARY_DIR}/scan.cpp)
+FLEX_TARGET(MyScanner src/scan.l ${CMAKE_SOURCE_DIR}/src/scan.cpp)
 
 ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 

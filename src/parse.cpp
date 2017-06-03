@@ -132,7 +132,7 @@ SM_Manager *pSmm;          // SM component manager
 QL_Manager *pQlm;          // QL component manager
 
 
-#line 136 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:339  */
+#line 136 "/home/payas/redbase/src/parse.cpp" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -152,8 +152,8 @@ QL_Manager *pQlm;          // QL component manager
 
 /* In a future release of Bison, this section will be replaced
    by #include "parse.hpp".  */
-#ifndef YY_YY_HOME_PAYAS_PROJECTS_REDBASE_SRC_PARSE_HPP_INCLUDED
-# define YY_YY_HOME_PAYAS_PROJECTS_REDBASE_SRC_PARSE_HPP_INCLUDED
+#ifndef YY_YY_HOME_PAYAS_REDBASE_SRC_PARSE_HPP_INCLUDED
+# define YY_YY_HOME_PAYAS_REDBASE_SRC_PARSE_HPP_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -204,8 +204,7 @@ extern int yydebug;
     T_REAL = 292,
     T_STRING = 293,
     T_QSTRING = 294,
-    T_SHELL_CMD = 295,
-    T_MBR = 296
+    T_SHELL_CMD = 295
   };
 #endif
 
@@ -221,9 +220,8 @@ union YYSTYPE
     float rval;
     char *sval;
     NODE *n;
-	V_MBR mval;
 
-#line 227 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:355  */
+#line 225 "/home/payas/redbase/src/parse.cpp" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -236,11 +234,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_PAYAS_PROJECTS_REDBASE_SRC_PARSE_HPP_INCLUDED  */
+#endif /* !YY_YY_HOME_PAYAS_REDBASE_SRC_PARSE_HPP_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 244 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:358  */
+#line 242 "/home/payas/redbase/src/parse.cpp" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -482,10 +480,10 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  65
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   111
+#define YYLAST   110
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  48
+#define YYNTOKENS  47
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  38
 /* YYNRULES -- Number of rules.  */
@@ -496,7 +494,7 @@ union yyalloc
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   296
+#define YYMAXUTOK   295
 
 #define YYTRANSLATE(YYX)                                                \
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -509,8 +507,8 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      43,    44,    46,     2,    45,     2,    47,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    42,
+      42,    43,    45,     2,    44,     2,    46,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,    41,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -534,21 +532,21 @@ static const yytype_uint8 yytranslate[] =
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
-      35,    36,    37,    38,    39,    40,    41
+      35,    36,    37,    38,    39,    40
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   165,   165,   170,   180,   186,   195,   196,   197,   198,
-     205,   206,   207,   208,   212,   213,   214,   215,   219,   220,
-     221,   222,   223,   224,   225,   226,   230,   236,   247,   255,
-     260,   268,   279,   292,   299,   306,   313,   320,   328,   335,
-     342,   349,   357,   364,   371,   378,   385,   389,   396,   403,
-     404,   411,   415,   422,   426,   433,   437,   444,   451,   455,
-     462,   466,   473,   480,   484,   491,   495,   502,   506,   510,
-     517,   521,   528,   532,   536,   540,   544,   548,   554
+       0,   162,   162,   167,   177,   183,   192,   193,   194,   195,
+     202,   203,   204,   205,   209,   210,   211,   212,   216,   217,
+     218,   219,   220,   221,   222,   223,   227,   233,   244,   252,
+     257,   265,   276,   289,   296,   303,   310,   317,   325,   332,
+     339,   346,   354,   361,   368,   375,   382,   386,   393,   400,
+     401,   408,   412,   419,   423,   430,   434,   441,   448,   452,
+     459,   463,   470,   477,   481,   488,   492,   499,   503,   507,
+     514,   518,   525,   529,   533,   537,   541,   545,   551
 };
 #endif
 
@@ -563,8 +561,8 @@ static const char *const yytname[] =
   "RW_UPDATE", "RW_AND", "RW_INTO", "RW_VALUES", "T_EQ", "T_LT", "T_LE",
   "T_GT", "T_GE", "T_NE", "T_EOF", "NOTOKEN", "RW_RESET", "RW_IO",
   "RW_BUFFER", "RW_RESIZE", "RW_QUERY_PLAN", "RW_ON", "RW_OFF", "T_INT",
-  "T_REAL", "T_STRING", "T_QSTRING", "T_SHELL_CMD", "T_MBR", "';'", "'('",
-  "')'", "','", "'*'", "'.'", "$accept", "start", "command", "ddl", "dml",
+  "T_REAL", "T_STRING", "T_QSTRING", "T_SHELL_CMD", "';'", "'('", "')'",
+  "','", "'*'", "'.'", "$accept", "start", "command", "ddl", "dml",
   "utility", "queryplans", "buffer", "statistics", "createtable",
   "createindex", "droptable", "dropindex", "load", "set", "help", "print",
   "exit", "query", "insert", "delete", "update", "non_mt_attrtype_list",
@@ -584,7 +582,7 @@ static const yytype_uint16 yytoknum[] =
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
      275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
-     295,   296,    59,    40,    41,    44,    42,    46
+     295,    59,    40,    41,    44,    42,    46
 };
 # endif
 
@@ -602,19 +600,19 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      11,  -102,    40,    44,   -34,   -31,   -29,   -28,  -102,   -30,
-      -2,    12,     3,  -102,    28,    21,    26,  -102,    62,    22,
+      11,  -102,     2,    40,   -33,   -29,    -8,   -28,  -102,   -34,
+      22,    46,    23,  -102,   -14,    29,    15,  -102,    62,    24,
     -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,
     -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,
-      25,    27,    29,    30,    23,    48,  -102,  -102,  -102,  -102,
-    -102,  -102,    24,  -102,    57,  -102,    31,    34,    35,    66,
-    -102,  -102,    39,  -102,  -102,  -102,  -102,    36,    37,  -102,
-      38,    43,    45,    47,    49,    50,    58,    63,    50,  -102,
-      51,    52,    53,    42,  -102,  -102,  -102,    63,    54,  -102,
-      55,    50,  -102,  -102,    71,    56,    59,    60,    64,    65,
-    -102,  -102,    49,     0,     9,  -102,    75,    18,  -102,  -102,
+      26,    28,    30,    31,    21,    49,  -102,  -102,  -102,  -102,
+    -102,  -102,    27,  -102,    54,  -102,    33,    34,    36,    63,
+    -102,  -102,    39,  -102,  -102,  -102,  -102,    37,    38,  -102,
+      41,    42,    43,    47,    48,    50,    56,    64,    50,  -102,
+      51,    52,    53,    44,  -102,  -102,  -102,    64,    55,  -102,
+      58,    50,  -102,  -102,    71,    57,    59,    60,    65,    66,
+    -102,  -102,    48,     0,    32,  -102,    75,    -4,  -102,  -102,
       51,  -102,  -102,  -102,  -102,  -102,  -102,    67,    61,  -102,
-    -102,  -102,  -102,  -102,  -102,    18,    50,  -102,    63,  -102,
+    -102,  -102,  -102,  -102,  -102,    -4,    50,  -102,    64,  -102,
     -102,  -102,     0,  -102,  -102,  -102,  -102
 };
 
@@ -644,8 +642,8 @@ static const yytype_int8 yypgoto[] =
 {
     -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,
     -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,  -102,
-    -102,  -102,   -27,  -102,  -102,    20,   -78,    -6,  -102,   -86,
-     -26,  -102,   -24,   -35,  -101,  -102,  -102,     5
+    -102,  -102,   -26,  -102,  -102,    19,   -78,    -6,  -102,   -86,
+     -25,  -102,   -27,   -35,  -101,  -102,  -102,    25
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
@@ -662,34 +660,34 @@ static const yytype_int16 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
-      94,   101,    49,    50,    44,    39,   129,    45,    52,    46,
-      51,    48,     1,   104,     2,     3,    53,    57,     4,     5,
-       6,     7,     8,     9,   129,    58,    10,    11,    12,   127,
-     119,   120,   121,   122,   123,   124,   114,   115,    13,   116,
-      14,    59,   135,    15,    16,    40,    41,   127,   104,    42,
-      43,    17,    62,   -78,   114,   115,    52,   116,    60,    61,
-      63,    64,    65,    67,    66,    68,    71,    69,    70,    72,
-      74,    73,    76,    77,    78,    79,    75,    91,    90,    80,
-      81,    82,    83,   130,    84,    85,   100,    86,    52,    95,
-      98,    99,   107,   126,   108,    89,   113,   136,   103,   102,
-     134,   133,     0,   109,     0,   110,   132,     0,   111,   112,
-       0,   131
+      94,   101,    49,    50,    52,    44,   129,    40,    41,    45,
+      51,    53,     1,   104,     2,     3,    60,    61,     4,     5,
+       6,     7,     8,     9,   129,    39,    10,    11,    12,   127,
+      46,    48,   114,   115,    52,   116,   114,   115,    13,   116,
+      14,    57,   135,    15,    16,    42,    43,   127,   104,    63,
+      64,    17,   -78,   119,   120,   121,   122,   123,   124,    58,
+      62,    59,    65,    71,    67,    66,    68,    74,    69,    70,
+      72,    78,    76,    73,    77,    79,    90,    75,    91,    80,
+      81,    83,    84,    82,   130,    85,    86,   100,    52,    95,
+      98,    99,   107,   126,    89,   108,   113,   136,   133,   102,
+     103,   134,   109,     0,   110,   132,     0,     0,   111,   112,
+     131
 };
 
 static const yytype_int16 yycheck[] =
 {
-      78,    87,    30,    31,    38,     0,   107,    38,    38,    38,
-      38,     6,     1,    91,     3,     4,    46,    19,     7,     8,
-       9,    10,    11,    12,   125,    13,    15,    16,    17,   107,
-      21,    22,    23,    24,    25,    26,    36,    37,    27,    39,
-      29,    38,   128,    32,    33,     5,     6,   125,   126,     5,
-       6,    40,    31,    42,    36,    37,    38,    39,    30,    31,
-      34,    35,     0,    38,    42,    38,    43,    38,    38,    21,
-      13,    47,    38,    38,     8,    36,    45,    14,    20,    43,
-      43,    43,    39,   110,    39,    38,    44,    38,    38,    38,
-      38,    38,    21,    18,    38,    75,   102,   132,    43,    45,
-     126,   125,    -1,    44,    -1,    45,    45,    -1,    44,    44,
-      -1,    44
+      78,    87,    30,    31,    38,    38,   107,     5,     6,    38,
+      38,    45,     1,    91,     3,     4,    30,    31,     7,     8,
+       9,    10,    11,    12,   125,     0,    15,    16,    17,   107,
+      38,     6,    36,    37,    38,    39,    36,    37,    27,    39,
+      29,    19,   128,    32,    33,     5,     6,   125,   126,    34,
+      35,    40,    41,    21,    22,    23,    24,    25,    26,    13,
+      31,    38,     0,    42,    38,    41,    38,    13,    38,    38,
+      21,     8,    38,    46,    38,    36,    20,    44,    14,    42,
+      42,    39,    39,    42,   110,    38,    38,    43,    38,    38,
+      38,    38,    21,    18,    75,    38,   102,   132,   125,    44,
+      42,   126,    43,    -1,    44,    44,    -1,    -1,    43,    43,
+      43
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -697,32 +695,32 @@ static const yytype_int16 yycheck[] =
 static const yytype_uint8 yystos[] =
 {
        0,     1,     3,     4,     7,     8,     9,    10,    11,    12,
-      15,    16,    17,    27,    29,    32,    33,    40,    49,    50,
-      51,    52,    53,    54,    55,    56,    57,    58,    59,    60,
-      61,    62,    63,    64,    65,    66,    67,    68,    69,    85,
-       5,     6,     5,     6,    38,    38,    38,    83,    85,    30,
-      31,    38,    38,    46,    72,    73,    74,    19,    13,    38,
-      30,    31,    31,    34,    35,     0,    42,    38,    38,    38,
-      38,    43,    21,    47,    13,    45,    38,    38,     8,    36,
-      43,    43,    43,    39,    39,    38,    38,    75,    76,    73,
-      20,    14,    77,    85,    74,    38,    70,    71,    38,    38,
-      44,    77,    45,    43,    74,    78,    79,    21,    38,    44,
-      45,    44,    44,    75,    36,    37,    39,    81,    82,    21,
-      22,    23,    24,    25,    26,    84,    18,    74,    80,    82,
-      70,    44,    45,    80,    78,    77,    81
+      15,    16,    17,    27,    29,    32,    33,    40,    48,    49,
+      50,    51,    52,    53,    54,    55,    56,    57,    58,    59,
+      60,    61,    62,    63,    64,    65,    66,    67,    68,    84,
+       5,     6,     5,     6,    38,    38,    38,    82,    84,    30,
+      31,    38,    38,    45,    71,    72,    73,    19,    13,    38,
+      30,    31,    31,    34,    35,     0,    41,    38,    38,    38,
+      38,    42,    21,    46,    13,    44,    38,    38,     8,    36,
+      42,    42,    42,    39,    39,    38,    38,    74,    75,    72,
+      20,    14,    76,    84,    73,    38,    69,    70,    38,    38,
+      43,    76,    44,    42,    73,    77,    78,    21,    38,    43,
+      44,    43,    43,    74,    36,    37,    39,    80,    81,    21,
+      22,    23,    24,    25,    26,    83,    18,    73,    79,    81,
+      69,    43,    44,    79,    77,    76,    80
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    48,    49,    49,    49,    49,    50,    50,    50,    50,
-      51,    51,    51,    51,    52,    52,    52,    52,    53,    53,
-      53,    53,    53,    53,    53,    53,    54,    54,    55,    55,
-      55,    56,    56,    57,    58,    59,    60,    61,    62,    63,
-      64,    65,    66,    67,    68,    69,    70,    70,    71,    72,
-      72,    73,    73,    74,    74,    75,    75,    76,    77,    77,
-      78,    78,    79,    80,    80,    81,    81,    82,    82,    82,
-      83,    83,    84,    84,    84,    84,    84,    84,    85
+       0,    47,    48,    48,    48,    48,    49,    49,    49,    49,
+      50,    50,    50,    50,    51,    51,    51,    51,    52,    52,
+      52,    52,    52,    52,    52,    52,    53,    53,    54,    54,
+      54,    55,    55,    56,    57,    58,    59,    60,    61,    62,
+      63,    64,    65,    66,    67,    68,    69,    69,    70,    71,
+      71,    72,    72,    73,    73,    74,    74,    75,    76,    76,
+      77,    77,    78,    79,    79,    80,    80,    81,    81,    81,
+      82,    82,    83,    83,    83,    83,    83,    83,    84
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
@@ -1412,16 +1410,16 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 166 "src/parse.y" /* yacc.c:1646  */
+#line 163 "src/parse.y" /* yacc.c:1646  */
     {
       parse_tree = (yyvsp[-1].n);
       YYACCEPT;
    }
-#line 1421 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1419 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 171 "src/parse.y" /* yacc.c:1646  */
+#line 168 "src/parse.y" /* yacc.c:1646  */
     {
       if (!isatty(0)) {
         cout << ((yyvsp[0].sval)) << "\n";
@@ -1431,59 +1429,59 @@ yyreduce:
       parse_tree = NULL;
       YYACCEPT;
    }
-#line 1435 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1433 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 181 "src/parse.y" /* yacc.c:1646  */
+#line 178 "src/parse.y" /* yacc.c:1646  */
     {
       reset_scanner();
       parse_tree = NULL;
       YYACCEPT;
    }
-#line 1445 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1443 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 187 "src/parse.y" /* yacc.c:1646  */
+#line 184 "src/parse.y" /* yacc.c:1646  */
     {
       parse_tree = NULL;
       bExit = 1;
       YYACCEPT;
    }
-#line 1455 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1453 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 199 "src/parse.y" /* yacc.c:1646  */
+#line 196 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = NULL;
    }
-#line 1463 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1461 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 231 "src/parse.y" /* yacc.c:1646  */
+#line 228 "src/parse.y" /* yacc.c:1646  */
     {
       bQueryPlans = 1;
       cout << "Query plan display turned on.\n";
       (yyval.n) = NULL;
    }
-#line 1473 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1471 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 237 "src/parse.y" /* yacc.c:1646  */
+#line 234 "src/parse.y" /* yacc.c:1646  */
     { 
       bQueryPlans = 0;
       cout << "Query plan display turned off.\n";
       (yyval.n) = NULL;
    }
-#line 1483 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1481 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 248 "src/parse.y" /* yacc.c:1646  */
+#line 245 "src/parse.y" /* yacc.c:1646  */
     {
       if (pPfm->ClearBuffer())
          cout << "Trouble clearing buffer!  Things may be pinned.\n";
@@ -1491,29 +1489,29 @@ yyreduce:
          cout << "Everything kicked out of Buffer!\n";
       (yyval.n) = NULL;
    }
-#line 1495 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1493 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 256 "src/parse.y" /* yacc.c:1646  */
+#line 253 "src/parse.y" /* yacc.c:1646  */
     {
       pPfm->PrintBuffer();
       (yyval.n) = NULL;
    }
-#line 1504 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1502 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 261 "src/parse.y" /* yacc.c:1646  */
+#line 258 "src/parse.y" /* yacc.c:1646  */
     {
       pPfm->ResizeBuffer((yyvsp[0].ival));
       (yyval.n) = NULL;
    }
-#line 1513 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1511 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 269 "src/parse.y" /* yacc.c:1646  */
+#line 266 "src/parse.y" /* yacc.c:1646  */
     {
       #ifdef PF_STATS
          cout << "Statistics\n";
@@ -1524,11 +1522,11 @@ yyreduce:
       #endif
       (yyval.n) = NULL;
    }
-#line 1528 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1526 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 280 "src/parse.y" /* yacc.c:1646  */
+#line 277 "src/parse.y" /* yacc.c:1646  */
     {
       #ifdef PF_STATS
          cout << "Statistics reset.\n";
@@ -1538,364 +1536,364 @@ yyreduce:
       #endif
       (yyval.n) = NULL;
    }
-#line 1542 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1540 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 293 "src/parse.y" /* yacc.c:1646  */
+#line 290 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = create_table_node((yyvsp[-3].sval), (yyvsp[-1].n));
    }
-#line 1550 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1548 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 300 "src/parse.y" /* yacc.c:1646  */
+#line 297 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = create_index_node((yyvsp[-3].sval), (yyvsp[-1].sval));
    }
-#line 1558 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1556 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 307 "src/parse.y" /* yacc.c:1646  */
+#line 304 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = drop_table_node((yyvsp[0].sval));
    }
-#line 1566 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1564 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 314 "src/parse.y" /* yacc.c:1646  */
+#line 311 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = drop_index_node((yyvsp[-3].sval), (yyvsp[-1].sval));
    }
-#line 1574 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1572 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 321 "src/parse.y" /* yacc.c:1646  */
+#line 318 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = load_node((yyvsp[-3].sval), (yyvsp[-1].sval));
    }
-#line 1582 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1580 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 329 "src/parse.y" /* yacc.c:1646  */
+#line 326 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = set_node((yyvsp[-2].sval), (yyvsp[0].sval));
    }
-#line 1590 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1588 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 336 "src/parse.y" /* yacc.c:1646  */
+#line 333 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = help_node((yyvsp[0].sval));
    }
-#line 1598 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1596 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 343 "src/parse.y" /* yacc.c:1646  */
+#line 340 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = print_node((yyvsp[0].sval));
    }
-#line 1606 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1604 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 350 "src/parse.y" /* yacc.c:1646  */
+#line 347 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = NULL;
       bExit = 1;
    }
-#line 1615 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1613 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 358 "src/parse.y" /* yacc.c:1646  */
+#line 355 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = query_node((yyvsp[-3].n), (yyvsp[-1].n), (yyvsp[0].n));
    }
-#line 1623 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1621 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 365 "src/parse.y" /* yacc.c:1646  */
+#line 362 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = insert_node((yyvsp[-4].sval), (yyvsp[-1].n));
    }
-#line 1631 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1629 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 372 "src/parse.y" /* yacc.c:1646  */
+#line 369 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = delete_node((yyvsp[-1].sval), (yyvsp[0].n));
    }
-#line 1639 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1637 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 379 "src/parse.y" /* yacc.c:1646  */
+#line 376 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = update_node((yyvsp[-5].sval), (yyvsp[-3].n), (yyvsp[-1].n), (yyvsp[0].n));
    }
-#line 1647 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1645 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 386 "src/parse.y" /* yacc.c:1646  */
+#line 383 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1655 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1653 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 390 "src/parse.y" /* yacc.c:1646  */
+#line 387 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1663 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1661 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 397 "src/parse.y" /* yacc.c:1646  */
+#line 394 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = attrtype_node((yyvsp[-1].sval), (yyvsp[0].sval));
    }
-#line 1671 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1669 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 405 "src/parse.y" /* yacc.c:1646  */
+#line 402 "src/parse.y" /* yacc.c:1646  */
     {
        (yyval.n) = list_node(relattr_node(NULL, (char*)"*"));
    }
-#line 1679 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1677 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 412 "src/parse.y" /* yacc.c:1646  */
+#line 409 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1687 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1685 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 416 "src/parse.y" /* yacc.c:1646  */
+#line 413 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1695 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1693 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 423 "src/parse.y" /* yacc.c:1646  */
+#line 420 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_node((yyvsp[-2].sval), (yyvsp[0].sval));
    }
-#line 1703 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1701 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 427 "src/parse.y" /* yacc.c:1646  */
+#line 424 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_node(NULL, (yyvsp[0].sval));
    }
-#line 1711 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1709 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 434 "src/parse.y" /* yacc.c:1646  */
+#line 431 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1719 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1717 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 438 "src/parse.y" /* yacc.c:1646  */
+#line 435 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1727 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1725 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 445 "src/parse.y" /* yacc.c:1646  */
+#line 442 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relation_node((yyvsp[0].sval));
    }
-#line 1735 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1733 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 452 "src/parse.y" /* yacc.c:1646  */
+#line 449 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = (yyvsp[0].n);
    }
-#line 1743 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1741 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 456 "src/parse.y" /* yacc.c:1646  */
+#line 453 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = NULL;
    }
-#line 1751 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1749 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 463 "src/parse.y" /* yacc.c:1646  */
+#line 460 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1759 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1757 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 467 "src/parse.y" /* yacc.c:1646  */
+#line 464 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1767 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1765 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 62:
-#line 474 "src/parse.y" /* yacc.c:1646  */
+#line 471 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = condition_node((yyvsp[-2].n), (yyvsp[-1].cval), (yyvsp[0].n));
    }
-#line 1775 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1773 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 481 "src/parse.y" /* yacc.c:1646  */
+#line 478 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_or_value_node((yyvsp[0].n), NULL);
    }
-#line 1783 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1781 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 485 "src/parse.y" /* yacc.c:1646  */
+#line 482 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = relattr_or_value_node(NULL, (yyvsp[0].n));
    }
-#line 1791 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1789 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 492 "src/parse.y" /* yacc.c:1646  */
+#line 489 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = prepend((yyvsp[-2].n), (yyvsp[0].n));
    }
-#line 1799 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1797 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 496 "src/parse.y" /* yacc.c:1646  */
+#line 493 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = list_node((yyvsp[0].n));
    }
-#line 1807 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1805 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 503 "src/parse.y" /* yacc.c:1646  */
+#line 500 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(STRING, (void *) (yyvsp[0].sval));
    }
-#line 1815 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1813 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 507 "src/parse.y" /* yacc.c:1646  */
+#line 504 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(INT, (void *)& (yyvsp[0].ival));
    }
-#line 1823 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1821 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 511 "src/parse.y" /* yacc.c:1646  */
+#line 508 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.n) = value_node(FLOAT, (void *)& (yyvsp[0].rval));
    }
-#line 1831 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1829 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 518 "src/parse.y" /* yacc.c:1646  */
+#line 515 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.sval) = (yyvsp[0].sval);
    }
-#line 1839 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1837 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 522 "src/parse.y" /* yacc.c:1646  */
+#line 519 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.sval) = NULL;
    }
-#line 1847 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1845 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 529 "src/parse.y" /* yacc.c:1646  */
+#line 526 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = LT_OP;
    }
-#line 1855 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1853 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 533 "src/parse.y" /* yacc.c:1646  */
+#line 530 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = LE_OP;
    }
-#line 1863 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1861 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 537 "src/parse.y" /* yacc.c:1646  */
+#line 534 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = GT_OP;
    }
-#line 1871 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1869 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 541 "src/parse.y" /* yacc.c:1646  */
+#line 538 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = GE_OP;
    }
-#line 1879 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1877 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 545 "src/parse.y" /* yacc.c:1646  */
+#line 542 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = EQ_OP;
    }
-#line 1887 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1885 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 549 "src/parse.y" /* yacc.c:1646  */
+#line 546 "src/parse.y" /* yacc.c:1646  */
     {
       (yyval.cval) = NE_OP;
    }
-#line 1895 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1893 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
     break;
 
 
-#line 1899 "/home/payas/Projects/redbase/src/parse.cpp" /* yacc.c:1646  */
+#line 1897 "/home/payas/redbase/src/parse.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2123,7 +2121,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 558 "src/parse.y" /* yacc.c:1906  */
+#line 555 "src/parse.y" /* yacc.c:1906  */
 
 
 //
