@@ -1,4 +1,4 @@
-baseurl = "https://www.example.com/" # Make sure to end baseurl with a '/'
+baseurl = "http://payasr.github.io/redbase-spatial/" # Make sure to end baseurl with a '/'
 title = "CS236-UCR"
 author = "PayasR"
 paginate = 5
