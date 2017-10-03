@@ -3,6 +3,7 @@ title = "CS236-UCR"
 author = "PayasR"
 paginate = 5
 theme = "blackburn"
+publishDir = "docs"
 
 [indexes]
   tag = "tags"
