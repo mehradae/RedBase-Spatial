@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on CS236-UCR</title>
+    <link>http://payasr.github.io/redbase-spatial/post/</link>
+    <description>Recent content in Posts on CS236-UCR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 02 Oct 2017 18:20:18 -0700</lastBuildDate>
+    
+	<atom:link href="http://payasr.github.io/redbase-spatial/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project Milestone 1: Getting started</title>
+      <link>http://payasr.github.io/redbase-spatial/post/milestone1/</link>
+      <pubDate>Mon, 02 Oct 2017 18:20:18 -0700</pubDate>
+      
+      <guid>http://payasr.github.io/redbase-spatial/post/milestone1/</guid>
+      <description>Table of Contents  Overview Life of an SQL Query Spatial data handling Introduction to Redbase Assigned Task  Overview  A vast majority of databases in use these days are relational, and popular implementations like Oracle, Microsoft SQL Server, MySQL and PostgreSQL dominate the database software market. A critical component of a database system is its index, a structure that allows efficient retrieval and join operations on the underlying tables.</description>
+    </item>
+    
+  </channel>
+</rss>

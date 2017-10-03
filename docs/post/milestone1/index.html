@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.29" />
+
+  <title>Project Milestone 1: Getting started &middot; CS236-UCR</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://payasr.github.io/redbase-spatial/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone1"><i class='fa fa-list fa-fw'></i>Milestone 1</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.cs.ucr.edu/~ravi/cs236.html"><i class='fa fa-list fa-fw'></i>Course Web Page</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Project Milestone 1: Getting started</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>02 Oct 2017, 18:20</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<h4 id="table-of-contents">Table of Contents</h4>
+
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#life">Life of an SQL Query</a></li>
+<li><a href="#spatial">Spatial data handling</a></li>
+<li><a href="#redbase">Introduction to Redbase</a></li>
+<li><a href="#assignment">Assigned Task</a></li>
+</ol>
+
+<h4 id="overview-a-name-overview-a">Overview <a name="overview"></a></h4>
+
+<p>A vast majority of databases in use these days are relational, and popular implementations like Oracle, Microsoft SQL Server, MySQL and PostgreSQL dominate the database software market. A critical component of a database system is its index, a structure that allows efficient retrieval and join operations on the underlying tables. Over the quarter we shall be using <a href="https://github.com/PayasR/redbase-spatial">Redbase</a>, an instructional relational database written in C++ that is otherwise complete, but does not implement an index. Our objective would be to implement an <a href="http://www.cs.ucr.edu/~ravi/CS236Papers/R-tree.pdf">R-tree</a> index.</p>
+
+<p>This first assignment is designed to introduce you to the internals of relational databases, get you familiar with spatial data and help you set up the Linux environment for Redbase. The instructions for submission can be found at the end of this document.</p>
+
+<h4 id="life-of-an-sql-query-a-name-life-a">Life of an SQL query<a name="life"></a></h4>
+
+<p>This section is a slightly modified excerpt from Section 1, <a href="http://db.cs.berkeley.edu/papers/fntdb07-architecture.pdf">Architecture of a Database System</a></p>
+
+<p>
+<div class="pure-u-1-1">
+  <img class="pure-img" src="/img/archDB.PNG" >
+</div>
+
+<!-- _Figure 1.1: Architecture of a typical RDBMS_ --></p>
+
+<p>At heart, a typical RDBMS has five main components, as illustrated in Figure 1.1. Consider a simple but typical database interaction at an airport, in which a gate agent clicks on a form to request the passenger list for a flight. This button click results in a single-query transaction that works roughly as follows:</p>
+
+<ol>
+<li>The client software on the personal computer at the airport gate (the “client”) calls an API that in turn communicates over a network to establish a connection with the Client Communications Manager of a DBMS (top of Figure 1.1). In some cases, this connection is established between the client and the database server directly, e.g., via the ODBC or JDBC connectivity protocol. This arrangement is termed a “two-tier” or “client-server” system. In other cases, the client may communicate with a “middle-tier server” (a web server, transaction processing monitor, or the like), which in turn uses a protocol to proxy the communication between the client and the DBMS. This is usually called a “three-tier” system. In many web based scenarios there is yet another “application server” tier between the web server and the DBMS, resulting in four tiers. Given these various options, a typical DBMS needs to be compatible with many different connectivity protocols used by various client drivers and middleware systems. At base, however, the responsibility of the DBMS’ client communications manager in all these protocols is roughly the same: to establish and remember the connection state for the caller (be it a client or a middleware server), to respond to SQL commands from the caller, and to return both data and control messages (result codes, errors, etc.) as appropriate. In our simple example, the communications manager would establish the security credentials of the client, set up state to remember the details of the new connection and the current SQL command across calls, and forward the client’s first request deeper into the DBMS to be processed.</li>
+<li>Upon receiving the client’s first SQL command, the DBMS must assign a “thread of computation” to the command. It must also make sure that the thread’s data and control outputs are connected via the communications manager to the client. These tasks are the job of the DBMS Process Manager (left side of Figure 1.1). The most important decision that the DBMS needs to make at this stage in the query regards admission control: whether the system should begin processing the query immediately, or defer execution until a time when enough system resources are available to devote to this query.</li>
+<li>Once admitted and allocated as a thread of control, the gate agent’s query can begin to execute. It does so by invoking the code in the Relational Query Processor (center, Figure 1.1). This set of modules checks that the user is authorized to run the query, and compiles the user’s SQL query text into an internal query plan. Once compiled, the resulting query plan is handled via the plan executor. The plan executor consists of a suite of “operators” (relational algorithm implementations) for executing any query. Typical operators implement relational query processing tasks including joins, selection, projection, aggregation, sorting and so on, as well as calls to request data records from lower layers of the system. In our example query, a small subset of these operators — as assembled by the query optimization process — is invoked to satisfy the gate agent’s query.</li>
+<li>At the base of the gate agent’s query plan, one or more operators exist to request data from the database. These operators make calls to fetch data from the DBMS’ Transactional Storage Manager (Figure 1.1, bottom), which manages all data access (read) and manipulation (create, update, delete) calls. The storage system includes algorithms and data structures for organizing and accessing data on disk (“access methods”), including basic structures like tables and indexes. It also includes a buffer management module that decides when and what data to transfer between disk and memory buffers. Returning to our example, in the course of accessing data in the access methods, the gate agent’s query must invoke the transaction management code to ensure the “ACID” properties of transactions. Before accessing data, locks are acquired from a lock manager to ensure correct execution in the face of other concurrent queries. If the gate agent’s query involved updates to the database, it would interact with the log manager to ensure that the transaction was durable if committed, and fully undone if aborted.</li>
+<li>At this point in the example query’s life, it has begun to access data records, and is ready to use them to compute results for the client. This is done by “unwinding the stack” of activities we described up to this point. The access methods return control to the query executor’s operators, which orchestrate the computation of result tuples from database data; as result tuples are generated, they are placed in a buffer for the client communications manager, which ships the results back to the caller. For large result sets, the client typically will make additional calls to fetch more data incrementally from the query, resulting in multiple iterations through the communications manager, query executor, and storage manager. In our simple example, at the end of the query the transaction is completed and the connection closed; this results in the transaction manager cleaning up state for the transaction, the process manager freeing any control structures for the query, and the communications manager cleaning up communication state for the connection.</li>
+<li>The right-hand side of Figure 1.1 depicts several shared components and utilities that are vital to the operation of a full-function DBMS. The catalog and memory managers are invoked as utilities during any transaction, including our example query. The catalog is used by the query processor during authentication, parsing, and query optimization. The memory manager is used throughout the DBMS whenever memory needs to be dynamically allocated or deallocated. The remaining modules listed in the rightmost box of Figure 1.1 are utilities that run independently of any query, keeping the database well-tuned and reliable.</li>
+</ol>
+
+<h4 id="spatial-data-a-name-spatial-a">Spatial data<a name="spatial"></a></h4>
+
+<p>Spatial data is information about the locations and shapes of geographic features and the relationships between them, usually stored as coordinates and topology (ESRI, 2017). In other words, it is data that is connected to a ‘location’ on earth, usually represented as latitude and longitude coordinates. Such data is generated by sensors, GPS devices, smartphones and is at the center of GIS systems. Since spatial data is multidimensional (the queries involve both latitude and longitude, in some cases even time), managing it requires special techniques and indexes, some of which will be covered in the papers we read in the course. The simplest spatial indexes are R-trees, Quadtrees and kD-trees. Specialized databases called geodatabases implement these techniques and are used by GIS implementations like ESRI’s ArcGIS and the open source QGIS and GRASS. Popular databases like MySQL, PostgreSQL, Oracle, SQL Server all support spatial data either natively or through extensions.</p>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="http://resources.arcgis.com/en/communities/analysis/GUID-143B3B54-7960-4958-85DE-524E3D0BB68F-web.png" >
+</div>
+
+<em>Figure 1.2: A heat map using spatial data</em></p>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="http://axismaps.github.io/thematic-cartography/images/classed_choropleth.jpg" >
+</div>
+
+<em>Figure 1.3: A chloropleth map using spatial data</em></p>
+
+<h4 id="spatial-datatypes-and-sql-extensions-for-spatial-data">Spatial datatypes and SQL extensions for spatial data</h4>
+
+<p>Since spatial data is inherently multidimensional, the Open Geospatial Consortium (OGC) defines standards that define the types of spatial objects that can be created and stored. Simple spatial datatypes include:</p>
+
+<ul>
+<li>Points: Simple points in a 2D plane</li>
+<li>Lines: Infinite lines or finite line segments</li>
+<li>Polylines: Also called ‘paths’ by certain implementations, used to represent irregular continuous lines like roads and rivers</li>
+<li>Polygons: Used to represent areas</li>
+</ul>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="https://docs.microsoft.com/en-us/sql/relational-databases/spatial/media/geom-hierarchy.gif" >
+</div>
+
+<em>Figure 1.4: Spatial datatypes supported by SQL Server</em></p>
+
+<p>Different spatial DBMS implement different subsets of the spatial datatypes of the original OGC specification. Spatial DBMS also extend the regular SQL to support spatial datatypes and relations between the objects. We shall look at a simple example of PostGIS and see how these extensions work. Please note that PostGIS ships as an extension to regular PostgreSQL and needs to be installed separately.</p>
+
+<h4 id="spatial-sql-example-neighborhoods-in-nyc">Spatial SQL example: Neighborhoods in NYC</h4>
+
+<p>New York has a rich history of neighborhood names and extent. Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as “South Brooklyn.” And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!</p>
+
+<p>Let’s say the dataset has the following schema:</p>
+
+<table>
+<thead>
+<tr>
+<th>Column name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>Name of the neighborhood</td>
+</tr>
+
+<tr>
+<td><strong>boroname</strong></td>
+<td>Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens</td>
+</tr>
+
+<tr>
+<td><strong>geom</strong></td>
+<td>Polygon boundary of the neighborhood</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_neighborhoods.png" >
+</div>
+
+<em>Figure 1.5: The neighbourhoods of NYC</em></p>
+
+<ul>
+<li><p>Creating a spatial table</p>
+
+<pre><code>CREATE TABLE nyc_neighbourhoods (name varchar, boroname varchar, geom geometry);
+</code></pre></li>
+
+<li><p>Inserting data</p>
+
+<pre><code>INSERT INTO nyc_neighbourhoods VALUES ('Carroll Hills', ’Brooklyn’, 'POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))');
+</code></pre>
+
+<p>Since the datasets are usually large, SQL IMPORT statements are used to populate the tables.</p></li>
+
+<li><p>Intersect Query</p>
+
+<pre><code>SELECT name, boroname
+FROM nyc_neighborhoods
+WHERE ST_Intersects(geom, ST_GeomFromText('POINT(583571 4506714)',26918));
+</code></pre>
+
+<p>The above query can be read as: Return the name of a neighborhood and the borough that this point (583571, 4506714) intersects with.</p></li>
+</ul>
+
+<p>The <code>ST_GeomFromText()</code> is a function used to create a point object from the text specified in the query. In addition to intersection, the OGC specification also lists several other spatial relationships: Contains, Crosses, Disjoint, Distance, DistanceWithin, Equals, Intersects, Touches, Within.</p>
+
+<p><strong>A detailed tutorial for spatial data handling in PostGIS can be found <a href="workshops.boundlessgeo.com/postgis-intro/">here</a>.</strong></p>
+
+<h4 id="introduction-to-redbase-a-name-redbase-a">Introduction to Redbase<a name="redbase"></a></h4>
+
+<pre><code>                    +----------------------------------------+
+                    |            Query Language              | 
+                    +----------------------------------------+
+                    |           System Management            |
+                    +-------------------+--------------------+
+                    |     Indexes       |  Record Management |
+                    +-------------------+--------------------+
+                    |              Paged File                |
+                    +----------------------------------------+
+</code></pre>
+
+<p>Redbase is a stripped down relational DBMS, that implements the <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">Stanford Redbase interfaces</a>. The system is kept as simple as possible and does not include the Process Manager, the Client Components Manager and the Shared Utilities of Figure 1.1. It is assumed that the queries are input directly to the database command line and no separate clients are available. The system is organized into five major components:</p>
+
+<ul>
+<li><p><strong>Paged File</strong> - The PF component provides facilities for higher-level client components to perform file I/O in terms of pages. In the PF component, methods are provided to create, destroy, open, and close paged files, to scan through the pages of a given file, to read a specific page of a given file, to add and delete pages of a given file, and to obtain and release pages for scratch use. It also implements the buffer pool for use by the other components. The interface for this layer is composed of 3 classes: <code>PF_Manager</code>, <code>PF_FileHandle</code> and <code>PF_PageHandle</code>.</p>
+
+<ul>
+<li><p>The <code>PF_Manager</code> class provides the functions for creating, deleting, opening and closing paged files</p>
+
+<pre><code>class PF_Manager
+{
+public:
+PF_Manager    ();                           // Constructor
+~PF_Manager   ();                           // Destructor
+RC CreateFile    (const char *fileName);       // Create a new file
+RC DestroyFile   (const char *fileName);       // Destroy a file
+RC OpenFile      (const char *fileName, PF_FileHandle &amp;fileHandle);  
+                                            // Open a file
+RC CloseFile     (PF_FileHandle &amp;fileHandle);  // Close a file
+RC AllocateBlock (char *&amp;buffer);              // Allocate a new scratch page in buffer
+RC DisposeBlock  (char *buffer);               // Dispose of a scratch page
+};
+</code></pre></li>
+
+<li><p>The <code>PF_FileHandler</code> contains functions that are used to access pages of an open file</p>
+
+<pre><code>class PF_FileHandle {
+public:
+PF_FileHandle  ();                                  // Default constructor
+~PF_FileHandle ();                                  // Destructor
+PF_FileHandle  (const PF_FileHandle &amp;fileHandle);   // Copy constructor
+PF_FileHandle&amp; operator= (const PF_FileHandle &amp;fileHandle);
+                                                    // Overload =
+RC GetFirstPage   (PF_PageHandle &amp;pageHandle) const;   // Get the first page
+RC GetLastPage    (PF_PageHandle &amp;pageHandle) const;   // Get the last page
+
+RC GetNextPage    (PageNum current, PF_PageHandle &amp;pageHandle) const; 
+                                                    // Get the next page
+RC GetPrevPage    (PageNum current, PF_PageHandle &amp;pageHandle) const;
+                                                    // Get the previous page
+RC GetThisPage    (PageNum pageNum, PF_PageHandle &amp;pageHandle) const;  
+                                                    // Get a specific page
+RC AllocatePage   (PF_PageHandle &amp;pageHandle);         // Allocate a new page
+RC DisposePage    (PageNum pageNum);                   // Dispose of a page 
+RC MarkDirty      (PageNum pageNum) const;             // Mark a page as dirty
+RC UnpinPage      (PageNum pageNum) const;             // Unpin a page
+RC ForcePages     (PageNum pageNum = ALL_PAGES) const; // Write dirty page(s)
+                                                    //   to disk
+};
+</code></pre></li>
+
+<li><p>The <code>PF_PageHandler</code> class contains functions that access the contents of a single page stored in the file.</p>
+
+<pre><code>class PF_PageHandle {
+public:
+PF_PageHandle  ();                          // Default constructor
+~PF_PageHandle ();                          // Destructor
+PF_PageHandle  (const PF_PageHandle &amp;pageHandle); 
+                                            // Copy constructor
+PF_PageHandle&amp; operator= (const PF_PageHandle &amp;pageHandle);
+                                            // Overload =
+RC GetData        (char *&amp;pData) const;        // Set pData to point to
+                                            //   the page contents
+RC GetPageNum     (PageNum &amp;pageNum) const;    // Return the page number
+};
+</code></pre></li>
+</ul></li>
+
+<li><p><strong>Record Management</strong> – The RM component is built on top of the PF Layer and provides classes and methods for managing files of unordered records. The interface of this layer is similar to the PF Layer, and contains <code>RM_Manager</code>, <code>RM_FileHandle</code>, <code>RM_Record</code> classes. In addition, the RM component also provides an <code>RM_FileScan</code> class, that allows the above layers to scan over the RM_Record objects stored in the file.</p></li>
+
+<li><p><strong>Indexing</strong> - The IX component provides classes and methods for managing persistent indexes over unordered data records stored in paged files. The indexes ultimately will be used to speed up processing of relational selections, joins, and condition-based update and delete operations. Like the data records themselves, the indexes are stored in paged files. The API for this component is specified here. We shall be implementing this layer.</p></li>
+
+<li><p><strong>System Management</strong> - The SM compoment provides the following functions:</p>
+
+<ul>
+<li>Unix command line utilities - for creating and destroying RedBase databases, invoking the system.</li>
+<li>Data definition language (DDL) commands - for creating and dropping relations, creating and dropping indexes.</li>
+<li>System utilities - for bulk loading, help, printing relations and setting parameters.</li>
+<li>Metadata management - for maintaining system catalogs containing table names and schema.</li>
+</ul></li>
+
+<li><p><strong>Query Language</strong> - The QL component implements the language RQL (for “RedBase Query Language”). RQL’s data retrieval command is a restricted version of the SQL Select statement. RQL’s data modification commands are restricted versions of SQL’s Insert, Delete, and Update statements. The QL component uses classes and methods from the IX, RM, and SM components. More details can be found here.</p></li>
+</ul>
+
+<h4 id="assigned-task-a-name-assignment-a">Assigned task<a name="assignment"></a></h4>
+
+<p>The first assignment is simple. You need to download Redbase, build it and run simple RQL queries. You will need a linux-like environment to be able to complete the following steps. Windows/Mac users can download <a href="https://www.virtualbox.org/">VirtualBox</a> and run any linux distribution on a VM. We recommend using either <a href="http://fedoraproject.org/">Fedora</a> or <a href="https://www.ubuntu.com/desktop">Ubuntu</a>. Windows 10 users can also have a look at the WSL (Windows Subsystem for Linux) to compile the given code (Note that you will require a Windows Insider Build installed on your system).</p>
+
+<p><strong>Install the dependencies</strong></p>
+
+<pre><code>sudo apt-get install flex bison g++ g++-multilib git cmake make 
+</code></pre>
+
+<p><strong>Clone repository</strong></p>
+
+<pre><code>git clone git@github.com:PayasR/redbase-spatial.git 
+</code></pre>
+
+<p><strong>Build the project</strong></p>
+
+<pre><code>cd redbase-spatial
+mkdir build
+cd build
+cmake ..
+make -j4
+</code></pre>
+
+<p><strong>Test</strong></p>
+
+<pre><code>./dbcreate Test
+./redbase Test
+</code></pre>
+
+<p><strong>DDL commands</strong></p>
+
+<pre><code>create table data (name c20, id i);
+drop table data;
+</code></pre>
+
+<p><strong>DML commands</strong></p>
+
+<pre><code>insert into data values (&quot;abc&quot;, 1);
+select * from data;
+</code></pre>
+
+<p><strong>Deliverables</strong></p>
+
+<ol>
+<li><p>Write a short two page report (.PDF) on the architecture of the Redbase system, the interfaces of the five layers and the functions of the following classes: <code>PF_Manager</code>, <code>PF_FileHandle</code>, <code>PF_PageHandle</code>, <code>RM_Manager</code>, <code>RM_FileHandle</code>, <code>RM_FileScan</code>, <code>RM_Record</code>, <code>RID</code>, <code>IX_Manager</code>, <code>IX_IndexHandle</code>, <code>IX_IndexScan</code>, <code>SM_Manager</code>, <code>QL_Manager</code>. You may use the <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">Redbase Specifications</a>, but write the description in your own words. Do <em>not</em> copy text verbatim. <strong>(7 points)</strong></p></li>
+
+<li><p>Using <a href="https://web.stanford.edu/class/cs346/2015/redbase-ql.html#rql">RQL</a>, create a simple table of your choice, insert 5 data entries and show outputs of 3 different SELECT statements. The SELECT queries must use the WHERE clause. Attach screenshots of the queries and the outputs after the two-page writeup. <strong>(3 points)</strong></p></li>
+</ol>
+
+<p><strong>Due date</strong>: 11<sup>th</sup> October 2017, 12:00 pm</p>
+
+
+  
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://payasr.github.io/redbase-spatial/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+
