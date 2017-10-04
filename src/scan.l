@@ -12,6 +12,7 @@
 #include "redbase.h"          /* parse.h needs the definition of real */
 #include "parser_internal.h"  /* y.tab.h needs the definition of NODE */
 #include "parse.hpp"
+#include "../src/scanhelp.c"
 
 static int get_id(char *s);   /* defined in scanhelp.c */
 static char *get_qstring(char *qstring, int len);
@@ -53,4 +54,3 @@ s_num                [+\-]?{num}
 <<EOF>>              {return T_EOF;}
 .                    {printf("illegal character [%c]\n", yytext[0]);}
 %%
-#include "../src/scanhelp.c"

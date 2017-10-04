@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.29" />
 
-  <title>Project Milestone 1: Getting started &middot; CS236-UCR</title>
+  <title>Project Overview &middot; CS236-UCR</title>
 
   
   
@@ -213,7 +213,7 @@
 
 
 <div class="header">
-  <h1>Project Milestone 1: Getting started</h1>
+  <h1>Project Overview</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -222,77 +222,53 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>02 Oct 2017, 18:20</time>
+    <time>03 Oct 2017, 11:47</time>
   </div>
 
   
 
   
+  
+  
+  
 
+  
+  
+  
   
 
 </div>
 
-  
+  <!-- A vast majority of databases in use these days are relational, and popular implementations like Oracle, Microsoft SQL Server, MySQL and PostgreSQL dominate the database software market. A critical component of a database system is its index, a structure that allows efficient retrieval and join operations on the underlying tables.  -->
 
-<h4 id="assigned-task-a-name-assignment-a">Assigned task<a name="assignment"></a></h4>
+<p>The goal of the project is to implement an <a href="http://www.cs.ucr.edu/~ravi/CS236Papers/R-tree.pdf">R-tree</a> index in <a href="https://github.com/PayasR/redbase-spatial">Redbase-spatial</a>, an instructional RDBMS written in C++. Since this requires substantial engineering effort, we shall be covering it in phases (Please note that the dates are tentative):</p>
 
-<p>The first assignment is simple. You need to download Redbase, build it and run simple RQL queries. You will need a linux-like environment to be able to complete the following steps. Windows/Mac users can download <a href="https://www.virtualbox.org/">VirtualBox</a> and run any linux distribution on a VM. We recommend using either <a href="http://fedoraproject.org/">Fedora</a> or <a href="https://www.ubuntu.com/desktop">Ubuntu</a>. Windows 10 users can also have a look at the WSL (Windows Subsystem for Linux) to compile the given code (Note that you will require a Windows Insider Build installed on your system).</p>
+<ul>
+<li>Milestone 1: Getting familiar with redbase architecture (Due: 11<sup>th</sup> October)</li>
+<li>Milestone 2: Adding a spatial datatype (Due: 23<sup>rd</sup> October)</li>
+<li>Milestone 3: Implementing R-tree (Due: 13<sup>th</sup> November)</li>
+<li>Milestone 4: Testing and benchmarking (Due: 27th November)</li>
+</ul>
 
-<p><strong>Install the dependencies</strong></p>
+<p>Students are expected to have a background in C or C++ programming. People with experience in other languages like Java, Go or Rust should be comfortable too.</p>
 
-<pre><code>sudo apt-get install flex bison g++ g++-multilib git cmake make 
-</code></pre>
+<!-- Over the quarter we shall be using [Redbase](https://github.com/PayasR/redbase-spatial), an instructional relational database written in C++ that is otherwise complete, but does not implement an index. Our objective would be to implement an [R-tree](http://www.cs.ucr.edu/~ravi/CS236Papers/R-tree.pdf) index.  -->
 
-<p><strong>Clone repository</strong></p>
-
-<pre><code>git clone git@github.com:PayasR/redbase-spatial.git 
-</code></pre>
-
-<p><strong>Build the project</strong></p>
-
-<pre><code>cd redbase-spatial
-mkdir build
-cd build
-cmake ..
-make -j4
-</code></pre>
-
-<p><strong>Test</strong></p>
-
-<pre><code>./dbcreate Test
-./redbase Test
-</code></pre>
-
-<p><strong>DDL commands</strong></p>
-
-<pre><code>create table data (name c20, id i);
-drop table data;
-</code></pre>
-
-<p><strong>DML commands</strong></p>
-
-<pre><code>insert into data values (&quot;abc&quot;, 1);
-select * from data;
-</code></pre>
-
-<p><strong>Deliverables</strong></p>
-
-<ol>
-<li><p>Write a short two page report (.PDF) on the architecture of the Redbase system, the interfaces of the five layers and the functions of the following classes: <code>PF_Manager</code>, <code>PF_FileHandle</code>, <code>PF_PageHandle</code>, <code>RM_Manager</code>, <code>RM_FileHandle</code>, <code>RM_FileScan</code>, <code>RM_Record</code>, <code>RID</code>, <code>IX_Manager</code>, <code>IX_IndexHandle</code>, <code>IX_IndexScan</code>, <code>SM_Manager</code>, <code>QL_Manager</code>. You may use the <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">Redbase Specifications</a>, but write the description in your own words. Do <em>not</em> copy text verbatim. <strong>(7 points)</strong></p></li>
-
-<li><p>Using <a href="https://web.stanford.edu/class/cs346/2015/redbase-ql.html#rql">RQL</a>, create a simple table of your choice, insert 5 data entries and show outputs of 3 different SELECT statements. The SELECT queries must use the WHERE clause. Attach screenshots of the queries and the outputs after the two-page writeup. <strong>(3 points)</strong></p></li>
-</ol>
-
-<p><strong>Due date</strong>: 11<sup>th</sup> October 2017, 12:00 pm</p>
+<!-- This first assignment is designed to introduce you to the internals of relational databases, get you familiar with spatial data and help you set up the Linux environment for Redbase. The instructions for submission can be found at the end of this document. -->
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
+    <a href="https://payasr.github.io/redbase-spatial/post/redbase-intro/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
   <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://payasr.github.io/redbase-spatial/post/redbase-intro/">Introduction to Redbase-spatial</a>
+    </nav>
     
   </div>
   <div class="pure-u-2-24">
@@ -300,14 +276,8 @@ select * from data;
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://payasr.github.io/redbase-spatial/post/architect-dbms/">Architecture of an RDBMS</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://payasr.github.io/redbase-spatial/post/architect-dbms/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

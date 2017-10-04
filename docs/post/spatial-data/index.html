@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.29" />
+
+  <title>Spatial Data Management: A tutorial &middot; CS236-UCR</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://payasr.github.io/redbase-spatial/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.cs.ucr.edu/~ravi/cs236.html"><i class='fa fa-list fa-fw'></i>Course Web Page</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/overview"><i class='fa fa-list fa-fw'></i>Project Overview</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/architect-dbms"><i class='fa fa-list fa-fw'></i>Architecture of an RDBMS</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/spatial-data"><i class='fa fa-list fa-fw'></i>Spatial data management</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/redbase-intro"><i class='fa fa-list fa-fw'></i>Introduction to redbase-spatial</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone1"><i class='fa fa-list fa-fw'></i>Milestone 1</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Spatial Data Management: A tutorial</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>03 Oct 2017, 11:46</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  
+
+<h4 id="spatial-data-a-name-spatial-a">Spatial data<a name="spatial"></a></h4>
+
+<p>Spatial data is information about the locations and shapes of geographic features and the relationships between them, usually stored as coordinates and topology (ESRI, 2017). In other words, it is data that is connected to a ‘location’ on earth, usually represented as latitude and longitude coordinates. Such data is generated by sensors, GPS devices, smartphones and is at the center of GIS systems. Since spatial data is multidimensional (the queries involve both latitude and longitude, in some cases even time), managing it requires special techniques and indexes, some of which will be covered in the papers we read in the course. The simplest spatial indexes are R-trees, Quadtrees and kD-trees. Specialized databases called geodatabases implement these techniques and are used by GIS implementations like ESRI’s ArcGIS and the open source QGIS and GRASS. Popular databases like MySQL, PostgreSQL, Oracle, SQL Server all support spatial data either natively or through extensions.</p>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="http://resources.arcgis.com/en/communities/analysis/GUID-143B3B54-7960-4958-85DE-524E3D0BB68F-web.png" >
+</div>
+
+<em>Figure 1.2: A heat map using spatial data</em></p>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="http://axismaps.github.io/thematic-cartography/images/classed_choropleth.jpg" >
+</div>
+
+<em>Figure 1.3: A chloropleth map using spatial data</em></p>
+
+<h4 id="spatial-datatypes-and-sql-extensions-for-spatial-data">Spatial datatypes and SQL extensions for spatial data</h4>
+
+<p>Since spatial data is inherently multidimensional, the Open Geospatial Consortium (OGC) defines standards that define the types of spatial objects that can be created and stored. Simple spatial datatypes include:</p>
+
+<ul>
+<li>Points: Simple points in a 2D plane</li>
+<li>Lines: Infinite lines or finite line segments</li>
+<li>Polylines: Also called ‘paths’ by certain implementations, used to represent irregular continuous lines like roads and rivers</li>
+<li>Polygons: Used to represent areas</li>
+</ul>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="https://docs.microsoft.com/en-us/sql/relational-databases/spatial/media/geom-hierarchy.gif" >
+</div>
+
+<em>Figure 1.4: Spatial datatypes supported by SQL Server</em></p>
+
+<p>Different spatial DBMS implement different subsets of the spatial datatypes of the original OGC specification. Spatial DBMS also extend the regular SQL to support spatial datatypes and relations between the objects. We shall look at a simple example of PostGIS and see how these extensions work. Please note that PostGIS ships as an extension to regular PostgreSQL and needs to be installed separately.</p>
+
+<h4 id="spatial-sql-example-neighborhoods-in-nyc">Spatial SQL example: Neighborhoods in NYC</h4>
+
+<p>New York has a rich history of neighborhood names and extent. Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as “South Brooklyn.” And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!</p>
+
+<p>Let’s say the dataset has the following schema:</p>
+
+<table>
+<thead>
+<tr>
+<th>Column name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>Name of the neighborhood</td>
+</tr>
+
+<tr>
+<td><strong>boroname</strong></td>
+<td>Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens</td>
+</tr>
+
+<tr>
+<td><strong>geom</strong></td>
+<td>Polygon boundary of the neighborhood</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<div class="pure-u-1">
+  <img class="pure-img" src="http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_neighborhoods.png" >
+</div>
+
+<em>Figure 1.5: The neighbourhoods of NYC</em></p>
+
+<ul>
+<li><p>Creating a spatial table</p>
+
+<pre><code>CREATE TABLE nyc_neighbourhoods (name varchar, boroname varchar, geom geometry);
+</code></pre></li>
+
+<li><p>Inserting data</p>
+
+<pre><code>INSERT INTO nyc_neighbourhoods VALUES ('Carroll Hills', ’Brooklyn’, 'POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))');
+</code></pre>
+
+<p>Since the datasets are usually large, SQL IMPORT statements are used to populate the tables.</p></li>
+
+<li><p>Intersect Query</p>
+
+<pre><code>SELECT name, boroname
+FROM nyc_neighborhoods
+WHERE ST_Intersects(geom, ST_GeomFromText('POINT(583571 4506714)',26918));
+</code></pre>
+
+<p>The above query can be read as: Return the name of a neighborhood and the borough that this point (583571, 4506714) intersects with.</p></li>
+</ul>
+
+<p>The <code>ST_GeomFromText()</code> is a function used to create a point object from the text specified in the query. In addition to intersection, the OGC specification also lists several other spatial relationships: Contains, Crosses, Disjoint, Distance, DistanceWithin, Equals, Intersects, Touches, Within.</p>
+
+<p><strong>A detailed tutorial for spatial data handling in PostGIS can be found <a href="workshops.boundlessgeo.com/postgis-intro/">here</a>.</strong></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://payasr.github.io/redbase-spatial/post/architect-dbms/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://payasr.github.io/redbase-spatial/post/architect-dbms/">Architecture of an RDBMS</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://payasr.github.io/redbase-spatial/post/redbase-intro/">Introduction to Redbase-spatial</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://payasr.github.io/redbase-spatial/post/redbase-intro/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://payasr.github.io/redbase-spatial/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

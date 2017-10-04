@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.29" />
+
+  <title>Introduction to Redbase-spatial &middot; CS236-UCR</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://payasr.github.io/redbase-spatial/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://payasr.github.io/redbase-spatial/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.cs.ucr.edu/~ravi/cs236.html"><i class='fa fa-list fa-fw'></i>Course Web Page</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/overview"><i class='fa fa-list fa-fw'></i>Project Overview</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/architect-dbms"><i class='fa fa-list fa-fw'></i>Architecture of an RDBMS</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/spatial-data"><i class='fa fa-list fa-fw'></i>Spatial data management</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/redbase-intro"><i class='fa fa-list fa-fw'></i>Introduction to redbase-spatial</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/redbase-spatial/post/milestone1"><i class='fa fa-list fa-fw'></i>Milestone 1</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Introduction to Redbase-spatial</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>03 Oct 2017, 11:46</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  <pre><code>                    +----------------------------------------+
+                    |            Query Language              | 
+                    +----------------------------------------+
+                    |           System Management            |
+                    +-------------------+--------------------+
+                    |     Indexes       |  Record Management |
+                    +-------------------+--------------------+
+                    |              Paged File                |
+                    +----------------------------------------+
+</code></pre>
+
+<p>Redbase is a stripped down relational DBMS, that implements the <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">Stanford Redbase interfaces</a>. The system is kept as simple as possible and does not include the Process Manager, the Client Components Manager and the Shared Utilities of Figure 1.1. It is assumed that the queries are input directly to the database command line and no separate clients are available. The system is organized into five major components:</p>
+
+<ul>
+<li><p><strong>Paged File</strong> - The PF component provides facilities for higher-level client components to perform file I/O in terms of pages. In the PF component, methods are provided to create, destroy, open, and close paged files, to scan through the pages of a given file, to read a specific page of a given file, to add and delete pages of a given file, and to obtain and release pages for scratch use. It also implements the buffer pool for use by the other components. The interface for this layer is composed of 3 classes: <code>PF_Manager</code>, <code>PF_FileHandle</code> and <code>PF_PageHandle</code>.</p>
+
+<ul>
+<li><p>The <code>PF_Manager</code> class provides the functions for creating, deleting, opening and closing paged files</p>
+
+<pre><code>class PF_Manager
+{
+public:
+PF_Manager    ();                           // Constructor
+~PF_Manager   ();                           // Destructor
+RC CreateFile    (const char *fileName);       // Create a new file
+RC DestroyFile   (const char *fileName);       // Destroy a file
+RC OpenFile      (const char *fileName, PF_FileHandle &amp;fileHandle);  
+                                            // Open a file
+RC CloseFile     (PF_FileHandle &amp;fileHandle);  // Close a file
+RC AllocateBlock (char *&amp;buffer);              // Allocate a new scratch page in buffer
+RC DisposeBlock  (char *buffer);               // Dispose of a scratch page
+};
+</code></pre></li>
+
+<li><p>The <code>PF_FileHandler</code> contains functions that are used to access pages of an open file</p>
+
+<pre><code>class PF_FileHandle {
+public:
+PF_FileHandle  ();                                  // Default constructor
+~PF_FileHandle ();                                  // Destructor
+PF_FileHandle  (const PF_FileHandle &amp;fileHandle);   // Copy constructor
+PF_FileHandle&amp; operator= (const PF_FileHandle &amp;fileHandle);
+                                                    // Overload =
+RC GetFirstPage   (PF_PageHandle &amp;pageHandle) const;   // Get the first page
+RC GetLastPage    (PF_PageHandle &amp;pageHandle) const;   // Get the last page
+
+RC GetNextPage    (PageNum current, PF_PageHandle &amp;pageHandle) const; 
+                                                    // Get the next page
+RC GetPrevPage    (PageNum current, PF_PageHandle &amp;pageHandle) const;
+                                                    // Get the previous page
+RC GetThisPage    (PageNum pageNum, PF_PageHandle &amp;pageHandle) const;  
+                                                    // Get a specific page
+RC AllocatePage   (PF_PageHandle &amp;pageHandle);         // Allocate a new page
+RC DisposePage    (PageNum pageNum);                   // Dispose of a page 
+RC MarkDirty      (PageNum pageNum) const;             // Mark a page as dirty
+RC UnpinPage      (PageNum pageNum) const;             // Unpin a page
+RC ForcePages     (PageNum pageNum = ALL_PAGES) const; // Write dirty page(s)
+                                                    //   to disk
+};
+</code></pre></li>
+
+<li><p>The <code>PF_PageHandler</code> class contains functions that access the contents of a single page stored in the file.</p>
+
+<pre><code>class PF_PageHandle {
+public:
+PF_PageHandle  ();                          // Default constructor
+~PF_PageHandle ();                          // Destructor
+PF_PageHandle  (const PF_PageHandle &amp;pageHandle); 
+                                            // Copy constructor
+PF_PageHandle&amp; operator= (const PF_PageHandle &amp;pageHandle);
+                                            // Overload =
+RC GetData        (char *&amp;pData) const;        // Set pData to point to
+                                            //   the page contents
+RC GetPageNum     (PageNum &amp;pageNum) const;    // Return the page number
+};
+</code></pre></li>
+</ul></li>
+
+<li><p><strong>Record Management</strong> – The RM component is built on top of the PF Layer and provides classes and methods for managing files of unordered records. The interface of this layer is similar to the PF Layer, and contains <code>RM_Manager</code>, <code>RM_FileHandle</code>, <code>RM_Record</code> classes. In addition, the RM component also provides an <code>RM_FileScan</code> class, that allows the above layers to scan over the RM_Record objects stored in the file.</p></li>
+
+<li><p><strong>Indexing</strong> - The IX component provides classes and methods for managing persistent indexes over unordered data records stored in paged files. The indexes ultimately will be used to speed up processing of relational selections, joins, and condition-based update and delete operations. Like the data records themselves, the indexes are stored in paged files. The API for this component is specified here. We shall be implementing this layer.</p></li>
+
+<li><p><strong>System Management</strong> - The SM compoment provides the following functions:</p>
+
+<ul>
+<li>Unix command line utilities - for creating and destroying RedBase databases, invoking the system.</li>
+<li>Data definition language (DDL) commands - for creating and dropping relations, creating and dropping indexes.</li>
+<li>System utilities - for bulk loading, help, printing relations and setting parameters.</li>
+<li>Metadata management - for maintaining system catalogs containing table names and schema.</li>
+</ul></li>
+
+<li><p><strong>Query Language</strong> - The QL component implements the language RQL (for “RedBase Query Language”). RQL’s data retrieval command is a restricted version of the SQL Select statement. RQL’s data modification commands are restricted versions of SQL’s Insert, Delete, and Update statements. The QL component uses classes and methods from the IX, RM, and SM components. More details can be found here.</p></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://payasr.github.io/redbase-spatial/post/spatial-data/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://payasr.github.io/redbase-spatial/post/spatial-data/">Spatial Data Management: A tutorial</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://payasr.github.io/redbase-spatial/post/overview/">Project Overview</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://payasr.github.io/redbase-spatial/post/overview/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://payasr.github.io/redbase-spatial/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+
