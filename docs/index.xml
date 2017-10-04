@@ -5,10 +5,19 @@
     <link>https://payasr.github.io/redbase-spatial/</link>
     <description>Recent content on CS236-UCR</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 03 Oct 2017 11:47:17 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 03 Oct 2017 18:33:17 -0700</lastBuildDate>
     
 	<atom:link href="https://payasr.github.io/redbase-spatial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Index</title>
+      <link>https://payasr.github.io/redbase-spatial/</link>
+      <pubDate>Tue, 03 Oct 2017 18:33:17 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/</guid>
+      <description> Table of Contents  Overview Architecture of an RDBMS A tutorial on spatial data management Introduction to Redbase Milestone 1  </description>
+    </item>
     
     <item>
       <title>Project Overview</title>
