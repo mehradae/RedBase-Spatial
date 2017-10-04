@@ -220,10 +220,7 @@
 
   <div class="post-meta">
 
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>03 Oct 2017, 11:46</time>
-  </div>
+  
 
   
 
@@ -250,7 +247,7 @@
                     +----------------------------------------+
 </code></pre>
 
-<p>Redbase is a stripped down relational DBMS, that implements the <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">Stanford Redbase interfaces</a>. The system is kept as simple as possible and does not include the Process Manager, the Client Components Manager and the Shared Utilities of Figure 1.1. It is assumed that the queries are input directly to the database command line and no separate clients are available. The system is organized into five major components:</p>
+<p>Redbase is a stripped down relational DBMS, that implements the <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">Stanford Redbase interfaces</a>. It is assumed that the queries are input directly to the database command line and no separate clients are available. The system is organized into five major components:</p>
 
 <ul>
 <li><p><strong>Paged File</strong> - The PF component provides facilities for higher-level client components to perform file I/O in terms of pages. In the PF component, methods are provided to create, destroy, open, and close paged files, to scan through the pages of a given file, to read a specific page of a given file, to add and delete pages of a given file, and to obtain and release pages for scratch use. It also implements the buffer pool for use by the other components. The interface for this layer is composed of 3 classes: <code>PF_Manager</code>, <code>PF_FileHandle</code> and <code>PF_PageHandle</code>.</p>
@@ -330,42 +327,13 @@ RC GetPageNum     (PageNum &amp;pageNum) const;    // Return the page number
 <li>Metadata management - for maintaining system catalogs containing table names and schema.</li>
 </ul></li>
 
-<li><p><strong>Query Language</strong> - The QL component implements the language RQL (for “RedBase Query Language”). RQL’s data retrieval command is a restricted version of the SQL Select statement. RQL’s data modification commands are restricted versions of SQL’s Insert, Delete, and Update statements. The QL component uses classes and methods from the IX, RM, and SM components. More details can be found here.</p></li>
+<li><p><strong>Query Language</strong> - The QL component implements the language RQL (for “RedBase Query Language”). RQL’s data retrieval command is a restricted version of the SQL Select statement. RQL’s data modification commands are restricted versions of SQL’s Insert, Delete, and Update statements. The QL component uses classes and methods from the IX, RM, and SM components.</p></li>
 </ul>
+
+<p><strong>The complete Redbase specification can be found <a href="https://web.stanford.edu/class/cs346/2015/redbase.html">here</a></strong></p>
 
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="https://payasr.github.io/redbase-spatial/post/spatial-data/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="https://payasr.github.io/redbase-spatial/post/spatial-data/">Spatial Data Management: A tutorial</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://payasr.github.io/redbase-spatial/post/overview/">Project Overview</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://payasr.github.io/redbase-spatial/post/overview/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
 
   
 
