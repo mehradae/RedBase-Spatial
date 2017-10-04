@@ -5,10 +5,19 @@
     <link>https://payasr.github.io/redbase-spatial/</link>
     <description>Recent content on CS236-UCR</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 03 Oct 2017 18:33:17 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 04 Oct 2017 10:16:00 -0700</lastBuildDate>
     
 	<atom:link href="https://payasr.github.io/redbase-spatial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Course Description</title>
+      <link>https://payasr.github.io/redbase-spatial/info/</link>
+      <pubDate>Wed, 04 Oct 2017 10:16:00 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/info/</guid>
+      <description>In this course, we will discuss various issues arising in the context of data management. The course will begin with a review of such issues as file systems, architecture of database management systems, data models, and relational databases. We will also examine logical and physical design of databases, hardware and software implementation of database systems, and distributed databases. The bulk of the class will consist of reading papers drawn from the research literature.</description>
+    </item>
     
     <item>
       <title>Index</title>
@@ -16,7 +25,7 @@
       <pubDate>Tue, 03 Oct 2017 18:33:17 -0700</pubDate>
       
       <guid>https://payasr.github.io/redbase-spatial/</guid>
-      <description> Table of Contents  Project Overview Architecture of an RDBMS A tutorial on spatial data management Introduction to Redbase Milestone 1  </description>
+      <description> Table of Contents  Class Information Project Overview Architecture of an RDBMS A tutorial on spatial data management Introduction to Redbase Milestone 1  </description>
     </item>
     
     <item>
