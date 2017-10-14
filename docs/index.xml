@@ -5,10 +5,21 @@
     <link>https://payasr.github.io/redbase-spatial/</link>
     <description>Recent content on CS236-UCR</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 04 Oct 2017 10:16:00 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2017 18:22:46 -0700</lastBuildDate>
     
 	<atom:link href="https://payasr.github.io/redbase-spatial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Milestone 2: Adding a Spatial Datatype</title>
+      <link>https://payasr.github.io/redbase-spatial/post/milestone2/</link>
+      <pubDate>Fri, 13 Oct 2017 18:22:46 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/milestone2/</guid>
+      <description>Okay, code time! In this assignment we shall modify redbase to accept a simple spatial datatype - a rectangle. To get an idea of what spatial data is and where is it used, please read through the tutorial if you haven&amp;rsquo;t already.
+At a high level, the following steps take place after the redbase executable is run:
+ redbase.cc shows a prompt and takes in a string as an input from the user.</description>
+    </item>
     
     <item>
       <title>Course Description</title>

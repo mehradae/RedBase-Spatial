@@ -11,8 +11,7 @@ Start by considering which keywords you want to add to to the language.
 These are be tokenized by lex.
 
 1.  scan.l
-    This is the lexer proper.  You probably don't need to change
-    anything here.
+    This is the lexer proper.
 
     The idea behind its operation, however, is the following:
 	the left column corresponds to patterns that the lexer will find
@@ -54,12 +53,6 @@ These are be tokenized by lex.
     This first defines the types of input it encounters.  At the command
     start the breakdown of the users commands begins.  The most likely spot
     to be changing things is in the command section.
-
-    Essentially, all you do is add a line containing | (logical or)
-    and the particular command you designed.
-
-    Somewhere below you define the structure of the command.  The examples
-    of these commands show pretty clearly how to go about adding a new one.
 
     The function RBparse() is also in this file.  Any changes to the overall
     query processing mechanism would be made here.  The function PrintError() 
