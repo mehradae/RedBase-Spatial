@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.27.1" />
 
-  <title>Tags &middot; CS236-UCR</title>
+  <title>Project Milestone 3: Implementing the R-Tree &middot; CS236-UCR</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="CS236-UCR" href="https://payasr.github.io/redbase-spatial/tags/index.xml" />
   
 
   
@@ -133,10 +131,6 @@
   <ul class="pure-menu-list">
 
     
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://payasr.github.io/redbase-spatial/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
-    
 
     
 
@@ -231,13 +225,69 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Project Milestone 3: Implementing the R-Tree</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  
+
+  
+
   
   
-  </ul>
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  <p>Now that your system has a spatial datatype, the next step is making the system work with spatial indexes. In this assignment we shall implement an <a href="http://www.cs.ucr.edu/~ravi/CS236Papers/R-tree.pdf">R-Tree index</a> in Redbase and use it to answer spatial range queries.</p>
+
+<p>To start with, you must become familiar with the structure of a database in Redbase. When <code>dbcreate test</code> is run, a folder named <code>test</code> is created, and contains two files, <code>attrcat</code> and <code>relcat</code>. These files constitute the &lsquo;catalog&rsquo; of the database. The <code>relcat</code> file records the information about the relations in <code>test</code>, and <code>attrcat</code> consists of information about the attributes of different relations in <code>test</code>. When a <code>CREATE TABLE data</code> command is run inside a database, a file <code>data</code> is created in the test folder, containing information stored in that relation. For all subsequent queries issued, the Storage Management (SM) layer uses the catalog and data files to implement the DDL and DML statements. The <code>attrcat</code>, <code>relcat</code> and relation data files are paged and handled by the <code>PF</code> layer of redbase using appropriate functions. No raw data should be written to or read from these files.</p>
+
+<p>At a high level, the following steps take place when the <code>CREATE INDEX</code> query is issued:</p>
+
+<ol>
+<li>Similar to the <code>SELECT</code> and <code>INSERT</code> statements, the query string goes through the lexing and parsing stages, checks for syntax correctness and a query tree is generated.</li>
+<li>The <code>interp.cc</code> interprets nodes of the query tree, calling the System Management layer&rsquo;s <code>SM_Manager::CreateIndex()</code> to create a new index on the input attribute.</li>
+<li><code>SM_Manager::CreateIndex()</code> looks for the information about the relation and the attribute in <code>relcat</code> and <code>attrcat</code>, and calls the <code>IX_Manager::CreateIndex()</code> to create an index on the specified attribute. An index of a relation is a <strong>new file</strong> that contains an R-Tree, which holds a subset of information of the original relation, and contains pointers to the original relation data file for faster queries.</li>
+<li>Currently, the methods in <code>IX_Manager</code>, <code>IX_IndexScan</code> and <code>IX_IndexHandle</code> are empty. Your task is to fill the methods of these classes with the implementation of an R-Tree.</li>
+</ol>
+
+<p><strong>Tasks Assigned</strong>
+There are two tasks you need to finish to complete this assignment: implement the R-tree, and define the <code>INTERSECTS</code> operation that can be used in conjunction with the <code>SELECT</code> or <code>DELETE</code> statements. Here are a few sample queries to test your implementation:</p>
+
+<pre><code>CREATE TABLE DATA (id i, location m); // Note the new datatype MBR denoted by 'm'
+INSERT INTO DATA VALUES (1, [1, 2, 3, 4]); // The 4 input values grouped in [] represent a single MBR
+
+CREATE INDEX DATA (location);
+SELECT * FROM DATA WHERE INTERSECTS (location, [2, 4, 3, 5]); 
+DELETE FROM DATA WHERE INTERSECTS (location, [2, 4, 3, 5]);
+</code></pre>
+
+<p>You may assume that the system supports indexing on only a single datatype, i.e. an index may be created only on an attribute of MBR type. Please use Piazza for any questions/discussions.</p>
+
+<p><strong>Deliverables</strong></p>
+
+<p>Please submit a snapshot of your code with a README file containing the instructions to run your code, packaged into a single .tar.gz file with the name firstname_lastname.tar.gz. <strong>(50 points)</strong></p>
+
+<p><strong>Due date:</strong> 24th November, 11:59 pm</p>
+
+<p><strong>How to submit:</strong> The submissions will be through iLearn.
+Please upload the report on iLearn &gt; CS 236 &gt; Assignments &gt; Project milestone 2.</p>
+
+
+  
+
+  
+
 </div>
 
 </div>
@@ -249,3 +299,4 @@
 
 </body>
 </html>
+

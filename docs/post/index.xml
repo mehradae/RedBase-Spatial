@@ -5,10 +5,20 @@
     <link>https://payasr.github.io/redbase-spatial/post/</link>
     <description>Recent content in Posts on CS236-UCR</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 Oct 2017 18:22:46 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 20 Oct 2017 11:00:42 -0700</lastBuildDate>
     
 	<atom:link href="https://payasr.github.io/redbase-spatial/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Milestone 3: Implementing the R-Tree</title>
+      <link>https://payasr.github.io/redbase-spatial/post/milestone3/</link>
+      <pubDate>Fri, 20 Oct 2017 11:00:42 -0700</pubDate>
+      
+      <guid>https://payasr.github.io/redbase-spatial/post/milestone3/</guid>
+      <description>Now that your system has a spatial datatype, the next step is making the system work with spatial indexes. In this assignment we shall implement an R-Tree index in Redbase and use it to answer spatial range queries.
+To start with, you must become familiar with the structure of a database in Redbase. When dbcreate test is run, a folder named test is created, and contains two files, attrcat and relcat.</description>
+    </item>
     
     <item>
       <title>Project Milestone 2: Adding a Spatial Datatype</title>
@@ -47,7 +57,7 @@ At a high level, the following steps take place after the redbase executable is 
       
       <guid>https://payasr.github.io/redbase-spatial/post/overview/</guid>
       <description>The goal of the project is to implement an R-tree index in Redbase-spatial, an instructional RDBMS written in C++. Since this requires substantial engineering effort, we shall be covering it in phases (Please note that the dates are tentative):
- Milestone 1: Getting familiar with redbase architecture (Due: 11th October) Milestone 2: Adding a spatial datatype (Due: 23rd October) Milestone 3: Implementing R-tree (Due: 13th November) Milestone 4: Testing and benchmarking (Due: 27th November)  Students are expected to have a background in C or C++ programming.</description>
+ Milestone 1: Getting familiar with redbase architecture (Due: 11th October) Milestone 2: Adding a spatial datatype (Due: 25rd October) Milestone 3: Implementing R-tree (Due: 24th November) Milestone 4: Testing and benchmarking (Due: 27th November)  Students are expected to have a background in C or C++ programming.</description>
     </item>
     
     <item>
