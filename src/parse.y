@@ -667,7 +667,8 @@ ostream &operator<<(ostream &s, const Value &v)
          s << " (char *)data=" << (char *)v.data;
          break;
       case MBR:
-         s << " *(int *)data=" << *(int *)v.data;
+         s << " *(struct mbr *)data=" << (*(struct mbr *)v.data).top_left_x  << (*(struct mbr *)v.data).top_left_y
+            << (*(struct mbr *)v.data).bottom_right_x << (*(struct mbr *)v.data).bottom_right_y;
          break;
    }
    return s;
