@@ -60,7 +60,17 @@ const int ALL_PAGES = -1;
 enum AttrType {
     INT,
     FLOAT,
-    STRING
+    STRING,
+    MBR
+};
+
+//MBR data type structure
+struct mbr
+{
+    int top_left_x;
+    int top_left_y;
+    int bottom_right_x;
+    int bottom_right_y;
 };
 
 //

@@ -163,6 +163,7 @@ void Printer::Print(ostream &c, const void * const data[])
     char str[MAXPRINTSTRING], strSpace[50];
     int i, a;
     float b;
+    mbr m;
 
     // Increment the number of tuples printed
     iCount++;
@@ -206,6 +207,15 @@ void Printer::Print(ostream &c, const void * const data[])
             else
                 Spaces(strlen(psHeader[i]), strlen(strSpace));
         }
+        if (attributes[i].attrType == MBR) {
+            memcpy (&m, data[i], sizeof(mbr));
+            sprintf(strSpace, "[%d,%d,%d,%d]",m.top_left_x, m.top_left_y, m.bottom_right_x, m.bottom_right_y);
+            c << strSpace;
+            if (strlen(psHeader[i]) < 12)
+                Spaces(12, strlen(strSpace));
+            else
+                Spaces(strlen(psHeader[i]), strlen(strSpace));
+        }
     }
     c << "\n";
 }
@@ -224,6 +234,7 @@ void Printer::Print(ostream &c, const char * const data)
     char str[MAXPRINTSTRING], strSpace[50];
     int i, a;
     float b;
+    mbr m;
 
     if (data == NULL)
         return;
@@ -264,6 +275,15 @@ void Printer::Print(ostream &c, const char * const data)
         if (attributes[i].attrType == FLOAT) {
             memcpy (&b, (data+attributes[i].offset), sizeof(float));
             sprintf(strSpace, "%f",b);
+            c << strSpace;
+            if (strlen(psHeader[i]) < 12)
+                Spaces(12, strlen(strSpace));
+            else
+                Spaces(strlen(psHeader[i]), strlen(strSpace));
+        }
+        if (attributes[i].attrType == MBR) {
+            memcpy (&m, data, sizeof(mbr));
+            sprintf(strSpace, "[%d,%d,%d,%d]",m.top_left_x, m.top_left_y, m.bottom_right_x, m.bottom_right_y);
             c << strSpace;
             if (strlen(psHeader[i]) < 12)
                 Spaces(12, strlen(strSpace));

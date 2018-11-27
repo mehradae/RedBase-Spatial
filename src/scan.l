@@ -40,6 +40,14 @@ s_num                [+\-]?{num}
                              return T_QSTRING;}
 \"([^\"\n]|(\"\"))*\n       {printf("newline in string constant\n");}
 {letter}({letter}|{digit}|_)*       {return get_id(yylval.sval = yytext);}
+
+\[{s_num}\,{s_num}\,{s_num}\,{s_num}\] {sscanf(yytext, "[%d,%d,%d,%d]", 
+                                        &yylval.mval.top_left_x, 
+                                        &yylval.mval.top_left_y, 
+                                        &yylval.mval.bottom_right_x, 
+                                        &yylval.mval.bottom_right_y); 
+                                            return T_MBR; }
+
 "<"                   {return T_LT;}
 "<="                 {return T_LE;}
 ">"                  {return T_GT;}

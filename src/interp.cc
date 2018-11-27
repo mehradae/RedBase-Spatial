@@ -446,6 +446,9 @@ static void mk_value(NODE *node, Value &value)
       case STRING:
          value.data = (void *)node->u.VALUE.sval;
          break;
+      case MBR:
+         value.data = (void *)&node->u.VALUE.mval;
+         break;
    }
 }
 
@@ -484,6 +487,11 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
 	 case 's':
          case 'c':
             return E_NOLENGTH;
+	    break;
+         case 'm':
+            *type = MBR;
+            *len = sizeof(mbr);
+            break;
          default:
             return E_INVFORMATSTRING;
       }
@@ -510,6 +518,11 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
             if(*len < 1 || *len > MAXSTRINGLEN)
                return E_INVSTRLEN;
             break;
+         case 'm':
+            *type = MBR;
+            if(*len != sizeof(MBR))
+               return E_INVINTSIZE;
+		break;
          default:
             return E_INVFORMATSTRING;
       }
@@ -717,6 +730,12 @@ static void print_value(NODE *n)
          break;
       case STRING:
          printf(" \"%s\"", n -> u.VALUE.sval);
+         break;
+      case MBR:
+         printf(" [%d,%d,%d,%d]", n -> u.VALUE.mval.top_left_x,
+                                  n -> u.VALUE.mval.top_left_y,
+                                  n -> u.VALUE.mval.bottom_right_x,
+                                  n -> u.VALUE.mval.bottom_right_y);
          break;
    }
 }

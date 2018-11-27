@@ -180,6 +180,7 @@ typedef struct node{
          int  ival;
          real rval;
          char *sval;
+	 mbr mval;
       } VALUE;
 
       /* relation node */

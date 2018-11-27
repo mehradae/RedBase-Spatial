@@ -74,6 +74,7 @@ QL_Manager *pQlm;          // QL component manager
     float rval;
     char *sval;
     NODE *n;
+    mbr mval;
 }
 
 %token     
@@ -112,6 +113,8 @@ QL_Manager *pQlm;          // QL component manager
       RW_OFF
 
 %token   <ival>   T_INT
+
+%token   <mval>   T_MBR
 
 %token   <rval>   T_REAL
 
@@ -508,6 +511,10 @@ value
    {
       $$ = value_node(FLOAT, (void *)& $1);
    }
+   | T_MBR
+   {
+      $$ = value_node(MBR, (void *)& $1);
+   }
    ;
 
 opt_relname
@@ -623,6 +630,7 @@ ostream &operator<<(ostream &s, const AttrInfo &ai)
       s << " attrName=" << ai.attrName
       << " attrType=" << 
       (ai.attrType == INT ? "INT" :
+	ai.attrType == MBR ? "MBR" :
        ai.attrType == FLOAT ? "FLOAT" : "STRING")
       << " attrLength=" << ai.attrLength;
 }
@@ -657,6 +665,9 @@ ostream &operator<<(ostream &s, const Value &v)
          break;
       case STRING:
          s << " (char *)data=" << (char *)v.data;
+         break;
+      case MBR:
+         s << " *(int *)data=" << *(int *)v.data;
          break;
    }
    return s;
@@ -701,6 +712,9 @@ ostream &operator<<(ostream &s, const AttrType &at)
          break;
       case STRING:
          s << "STRING";
+         break;
+      case MBR:
+         s << "MBR";
          break;
    }
    return s;

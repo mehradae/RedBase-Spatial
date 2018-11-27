@@ -285,6 +285,9 @@ NODE *value_node(AttrType type, void *value)
     case STRING:
       n->u.VALUE.sval = (char *)value;
       break;
+    case MBR:
+      n->u.VALUE.mval = *(mbr *)value;
+      break;
     }
     return n;
 }

@@ -52,7 +52,13 @@ bool recInsert_string(char *location, string value, int length){
   memcpy(location, value.c_str(), value.length()+1);
   return true;
 }
-
+bool recInsert_MBR(char *location, string value, int length){
+  mbr_data num;
+  istringstream ss(value);
+  ss >> num
+  memcpy(location, (char*)&num, lenght);
+  return true;
+}
 /*
  * Constructor and destructor for SM_Manager
  */

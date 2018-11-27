@@ -41,6 +41,16 @@ bool recInsert_int(char *location, string value, int length){
   return true;
 }
 
+bool recInsert_MBR(char *location, string value, int length){
+  int num;
+  istringstream ss(value);
+  ss >> num;
+  if(ss.fail())
+    return false;
+  memcpy(location, (char*)&num, length);
+  return true;
+}
+
 bool recInsert_float(char *location, string value, int length){
   float num;
   istringstream ss(value);
@@ -136,6 +146,8 @@ bool SM_Manager::isValidAttrType(AttrInfo attribute){
     return true;
   if(type == FLOAT && length == 4)
     return true;
+  if(type== MBR && length == sizeof(mbr))
+    return true;
   if(type == STRING && (length > 0) && length < MAXSTRINGLEN)
     return true;
 
@@ -159,6 +171,7 @@ RC SM_Manager::CreateTable(const char *relName,
     cout << "   attributes[" << i << "].attrName=" << attributes[i].attrName
         << "   attrType="
         << (attributes[i].attrType == INT ? "INT" :
+            attributes[i].attrType == MBR ? "MBR" :
             attributes[i].attrType == FLOAT ? "FLOAT" : "STRING")
         << "   attrLength=" << attributes[i].attrLength << "\n";
 
@@ -608,6 +621,9 @@ RC SM_Manager::PrepareAttr(RelCatEntry *rEntry, Attr* attributes){
     }
     else if(aEntry->attrType == FLOAT)
       attributes[slot].recInsert = &recInsert_float;
+    else if(aEntry->attrType == MBR){
+      attributes[slot].recInsert = &recInsert_MBR;
+	}
     else
       attributes[slot].recInsert = &recInsert_string;
   }
@@ -771,6 +787,8 @@ RC SM_Manager::OpenAndLoadFile(RM_FileHandle &relFH, const char *fileName, Attr*
         if(attributes[i].type == STRING)
           attrValue = ConvertStrToFloat(record + offset);
         else if(attributes[i].type == INT)
+          attrValue = (float) *((int*) (record + offset));
+        else if(attributes[i].type == MBR)
           attrValue = (float) *((int*) (record + offset));
         else{
           attrValue = *((float*) (record + offset));
@@ -1284,6 +1302,8 @@ RC SM_Manager::CalcStats(const char *relName){
       float attrValue = 0.0;
       if(attributes[i].type == STRING)
         attrValue = ConvertStrToFloat(recData + offset);
+      else if(attributes[i].type == MBR)
+        attrValue = (float) *((int*) (recData + offset));
       else if(attributes[i].type == INT)
         attrValue = (float) *((int*) (recData + offset));
       else
