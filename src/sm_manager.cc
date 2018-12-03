@@ -441,7 +441,7 @@ RC SM_Manager::CreateIndex(const char *relName,
   cout << "CreateIndex\n"
     << "   relName =" << relName << "\n"
     << "   attrName=" << attrName << "\n";
-
+    printf("Before create the Index");
   RC rc = 0;
   RM_Record relRec;
   RelCatEntry *rEntry;
@@ -458,6 +458,7 @@ RC SM_Manager::CreateIndex(const char *relName,
   // check there isnt already an index
   if(aEntry->indexNo != NO_INDEXES)
     return (SM_INDEXEDALREADY);
+
 
   // Create this index
   if((rc = ixm.CreateIndex(relName, rEntry->indexCurrNum, aEntry->attrType, aEntry->attrLength)))
