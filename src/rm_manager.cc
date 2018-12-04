@@ -36,23 +36,6 @@ RC RM_Manager::CreateFile (const char *fileName, int recordSize) {
   if( (PF_PAGE_SIZE - bitmapSize - bitmapOffset)/recordSize <= 0)
     return RM_BADRECORDSIZE;
 
-  // Sets up the file header
-  /*
-  struct RM_FileHeader header;
-  header.recordSize = recordSize;
-  header.numRecordsPerPage = RM_FileHandle::CalcNumRecPerPage(recordSize);
-  header.bitmapSize = RM_FileHandle::NumBitsToCharSize(header.numRecordsPerPage);
-  header.bitmapOffset = sizeof(struct RM_PageHeader);
-  header.numPages = 1;
-  header.firstFreePage = NO_MORE_FREE_PAGES;
-
-  // More stringent checks on record size
-  int numRecordsPerPage = (PF_PAGE_SIZE - (header.bitmapSize) - (header.bitmapOffset))/recordSize;
-  if(numRecordsPerPage <= 0)
-    return RM_BADRECORDSIZE;
-  header.numRecordsPerPage = numRecordsPerPage;
-  */
-
   // Creates the file
   if((rc = pfm.CreateFile(fileName)))
     return (rc);

@@ -313,7 +313,7 @@ RC IX_IndexHandle::SplitRootNode(struct IX_NodeHeader *pHeader, struct IX_NodeHe
     int curr_idx1 = oldHeader->firstSlotIndex;
 
     int selectIdx1, selectIdx2;
-    mbr mbr_max_top_left_x, mbr_max_top_left_y, mbr_min_bottom_right_x, mbr_min_bottom_right_y;
+
     int max_top_left_x_v = -1000, max_top_left_y_v = -1000, min_bottom_right_x_v = 1000, min_bottom_right_y_v = 1000;
     int min_top_left_x_v = 1000, min_top_left_y_v = 1000, max_bottom_right_x_v = -1000, max_bottom_right_y_v = -1000;
     int max_top_left_x_idx = -1, max_top_left_y_idx = -1, min_bottom_right_x_idx = -1, min_bottom_right_y_idx = -1;
@@ -321,31 +321,31 @@ RC IX_IndexHandle::SplitRootNode(struct IX_NodeHeader *pHeader, struct IX_NodeHe
     for(int i=0; i < header.maxKeys_N ; i++){
         //read the value of the node
         char *oldValue = oldKeys + header.attr_length * curr_idx1;
-        mbr tempmbr = *(mbr*)oldValue;
+        mbr tempmbr = *(struct mbr*)oldValue;
         //LPS1: Find entry with corresponding values
         if( tempmbr.top_left_x > max_top_left_x_v )
         {
             max_top_left_x_v = tempmbr.top_left_x;
             max_top_left_x_idx = curr_idx1;
-            mbr_max_top_left_x = *(mbr*)oldValue;
+
         }
         if( tempmbr.top_left_y > max_top_left_y_v)
         {
             max_top_left_y_v = tempmbr.top_left_y;
             max_top_left_y_idx = curr_idx1;
-            mbr_max_top_left_y = *(mbr*)oldValue;
+
         }
         if( tempmbr.bottom_right_x < min_bottom_right_x_v )
         {
             min_bottom_right_x_v = tempmbr.bottom_right_x;
             min_bottom_right_x_idx = curr_idx1;
-            mbr_min_bottom_right_x = *(mbr*)oldValue;
+
         }
         if( tempmbr.bottom_right_y < min_bottom_right_y_v)
         {
             min_bottom_right_y_v = tempmbr.bottom_right_y;
             min_bottom_right_y_idx = curr_idx1;
-            mbr_min_bottom_right_y = *(mbr*)oldValue;
+
         }
 
         //calculate the entire width on both axises

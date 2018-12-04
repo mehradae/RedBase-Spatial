@@ -104,6 +104,7 @@ RC interp(NODE *n)
 
          errval = pSmm->CreateIndex(n->u.CREATEINDEX.relname,
                n->u.CREATEINDEX.attrname);
+         printf("%s\n", "insertion done at interp.cc");
          break;
 
       case N_DROPINDEX:            /* for DropIndex() */
@@ -520,7 +521,7 @@ static int parse_format_string(char *format_string, AttrType *type, int *len)
             break;
          case 'm':
             *type = MBR;
-            if(*len != sizeof(MBR))
+            if(*len != sizeof(mbr))
                return E_INVINTSIZE;
 		break;
          default:

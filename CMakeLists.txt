@@ -29,7 +29,7 @@ set(RM_SOURCES
 		src/rm_manager.cc 
 		src/rm_filehandle.cc 
 		src/rm_record.cc 
-	        src/rm_filescan.cc 
+		src/rm_filescan.cc
 		src/rm_error.cc 
 		src/rm_rid.cc
 	)

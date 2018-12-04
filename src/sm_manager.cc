@@ -351,6 +351,7 @@ RC SM_Manager::GetRelEntry(const char *relName, RM_Record &relRec, RelCatEntry *
   RC rc = 0;
   // Use a scan to search for it
   RM_FileScan fs;
+  printf("scanning for file");
   if((rc = fs.OpenScan(relcatFH, STRING, MAXNAME+1, 0, EQ_OP, const_cast<char*>(relName))))
     return (rc);
   if((rc = fs.GetNextRec(relRec))) // there should be only one entry
@@ -438,10 +439,12 @@ RC SM_Manager::GetAttrForRel(RelCatEntry *relEntry, AttrCatEntry *aEntry, std::m
 RC SM_Manager::CreateIndex(const char *relName,
                            const char *attrName)
 {
+
   cout << "CreateIndex\n"
     << "   relName =" << relName << "\n"
     << "   attrName=" << attrName << "\n";
-    printf("Before create the Index");
+  printf("me After !");
+
   RC rc = 0;
   RM_Record relRec;
   RelCatEntry *rEntry;
