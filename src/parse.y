@@ -96,6 +96,7 @@ QL_Manager *pQlm;          // QL component manager
       RW_AND
       RW_INTO
       RW_VALUES
+      T_INTERSECTS
       T_EQ
       T_LT
       T_LE
@@ -554,6 +555,11 @@ op
       $$ = NE_OP;
    }
    ;
+   | T_INTERSECTS
+      {
+         $$ = INTERSECTS_OP;
+      }
+      ;
 
 nothing
    : /* epsilon */
@@ -698,6 +704,10 @@ ostream &operator<<(ostream &s, const CompOp &op)
       case NO_OP:
          s << " NO_OP";
          break;
+      case INTERSECTS_OP:
+         s << " INTERSECTS";
+         break;
+
    }
    return s;
 }

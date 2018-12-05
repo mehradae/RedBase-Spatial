@@ -229,7 +229,6 @@ RC RM_FileScan::GetNextRec(RM_Record &rec) {
     // and set the indicator (useNextPage)
     if(numRecOnPage == numSeenOnPage){
       useNextPage = true;
-      //printf("unpin page in filescan\n");
       if(rc = fileHandle->pfh.UnpinPage(scanPage)){
         return (rc);
       }
@@ -275,7 +274,6 @@ RC RM_FileScan::CloseScan () {
     return (RM_INVALIDSCAN);
   }
   if(hasPagePinned == true){
-    //printf("unpinning page\n");
     if((rc = fileHandle->pfh.UnpinPage(scanPage)))
       return (rc);
   }

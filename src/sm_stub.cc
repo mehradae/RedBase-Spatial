@@ -29,7 +29,6 @@ bool recInsert_int(char *location, string value, int length){
   ss >> num;
   if(ss.fail())
     return false;
-  //printf("num: %d \n", num);
   memcpy(location, (char*)&num, length);
   return true;
 }
@@ -670,7 +669,6 @@ RC SM_Manager::OpenAndLoadFile(RM_FileHandle &relFH, const char *fileName, Attr*
         }
       }
     }
-    //printf("record : %d, %d\n", *(int*)record, *(int*)(record+4));
   }
 
 
@@ -938,7 +936,6 @@ RC SM_Manager::Help(const char *relName)
         IX_IndexHandle ih;
         if((rc = ixm.OpenIndex(relName, attr->indexNo, ih)))
           return (rc);
-        //printf("successfully opens \n");
         if((rc = ih.PrintIndex()) || (rc = ixm.CloseIndex(ih)))
           return (rc);
       }

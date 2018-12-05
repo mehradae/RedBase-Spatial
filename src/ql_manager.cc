@@ -33,7 +33,7 @@ using namespace std;
 QL_Manager::QL_Manager(SM_Manager &smm, IX_Manager &ixm, RM_Manager &rmm) : rmm(rmm), ixm(ixm), smm(smm)
 {
   // Can't stand unused variable warnings!
-  assert (&smm && &ixm && &rmm);
+ // assert (&smm && &ixm && &rmm);
 }
 
 //

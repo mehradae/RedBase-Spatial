@@ -5,6 +5,7 @@ project (Redbase)
 set(CMAKE_C_COMPILER g++)
 set(CMAKE_CXX_COMPILER g++)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+SET(CMAKE_BUILD_TYPE Debug)
 
 # Required to print statistics from the PF Layer.
 add_definitions(-DPF_STATS)

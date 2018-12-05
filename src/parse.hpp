@@ -63,27 +63,28 @@ extern int yydebug;
     RW_AND = 273,
     RW_INTO = 274,
     RW_VALUES = 275,
-    T_EQ = 276,
-    T_LT = 277,
-    T_LE = 278,
-    T_GT = 279,
-    T_GE = 280,
-    T_NE = 281,
-    T_EOF = 282,
-    NOTOKEN = 283,
-    RW_RESET = 284,
-    RW_IO = 285,
-    RW_BUFFER = 286,
-    RW_RESIZE = 287,
-    RW_QUERY_PLAN = 288,
-    RW_ON = 289,
-    RW_OFF = 290,
-    T_INT = 291,
-    T_MBR = 292,
-    T_REAL = 293,
-    T_STRING = 294,
-    T_QSTRING = 295,
-    T_SHELL_CMD = 296
+    T_INTERSECTS = 276,
+    T_EQ = 277,
+    T_LT = 278,
+    T_LE = 279,
+    T_GT = 280,
+    T_GE = 281,
+    T_NE = 282,
+    T_EOF = 283,
+    NOTOKEN = 284,
+    RW_RESET = 285,
+    RW_IO = 286,
+    RW_BUFFER = 287,
+    RW_RESIZE = 288,
+    RW_QUERY_PLAN = 289,
+    RW_ON = 290,
+    RW_OFF = 291,
+    T_INT = 292,
+    T_MBR = 293,
+    T_REAL = 294,
+    T_STRING = 295,
+    T_QSTRING = 296,
+    T_SHELL_CMD = 297
   };
 #endif
 
@@ -101,7 +102,7 @@ union YYSTYPE
     NODE *n;
     mbr mval;
 
-#line 105 "/home/mehrad/workplace/redbase-spatial/src/parse.hpp" /* yacc.c:1909  */
+#line 106 "/home/mehrad/workplace/redbase-spatial/src/parse.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

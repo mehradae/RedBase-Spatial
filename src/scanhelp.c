@@ -105,6 +105,8 @@ static int get_id(char *s)
 
    if(!strcmp(string, "and"))
       return yylval.ival = RW_AND;
+   if(!strcmp(string, "intersects"))
+      return T_INTERSECTS;
 
    if(!strcmp(string, "into"))
       return yylval.ival = RW_INTO;

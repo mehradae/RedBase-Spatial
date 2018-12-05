@@ -121,8 +121,6 @@ RC QL_Node::AddCondition(const Condition condition, int condNum){
     condList[condIndex].isValue = true;
     condList[condIndex].data = condition.rhsValue.data;
     condList[condIndex].length2 = strlen((char *)condition.rhsValue.data);
-    //printf("is value %d \n", *(int *)condList[condIndex].data);
-    //printf("the length of value is %d \n", condList[condIndex].length2);
   }
 
   switch(condition.op){
@@ -134,7 +132,6 @@ RC QL_Node::AddCondition(const Condition condition, int condNum){
     case NE_OP : condList[condIndex].comparator = &nnot_equal; break;
     default: return (QL_BADCOND);
   }
-  //printf("adding condition to check tuple at offset %d \n", condList[condIndex].offset1);
   condsInNode[condIndex] = condNum;
   condIndex++;
 

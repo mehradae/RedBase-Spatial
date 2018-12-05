@@ -36,7 +36,6 @@ bool recInsert_int(char *location, string value, int length){
   ss >> num;
   if(ss.fail())
     return false;
-  //printf("num: %d \n", num);
   memcpy(location, (char*)&num, length);
   return true;
 }
@@ -351,7 +350,6 @@ RC SM_Manager::GetRelEntry(const char *relName, RM_Record &relRec, RelCatEntry *
   RC rc = 0;
   // Use a scan to search for it
   RM_FileScan fs;
-  printf("scanning for file");
   if((rc = fs.OpenScan(relcatFH, STRING, MAXNAME+1, 0, EQ_OP, const_cast<char*>(relName))))
     return (rc);
   if((rc = fs.GetNextRec(relRec))) // there should be only one entry
@@ -443,7 +441,6 @@ RC SM_Manager::CreateIndex(const char *relName,
   cout << "CreateIndex\n"
     << "   relName =" << relName << "\n"
     << "   attrName=" << attrName << "\n";
-  printf("me After !");
 
   RC rc = 0;
   RM_Record relRec;
@@ -503,7 +500,7 @@ RC SM_Manager::CreateIndex(const char *relName,
     return (rc);
   if((rc = relcatFH.ForcePages() || (rc = attrcatFH.ForcePages())))
     return (rc);
-
+  printf("%s\n", "\nIndexing Done..!!");
   return (0);
 }
 
@@ -806,11 +803,9 @@ RC SM_Manager::OpenAndLoadFile(RM_FileHandle &relFH, const char *fileName, Attr*
       
     }
     loadedRecs++;
-    //printf("record : %d, %d\n", *(int*)record, *(int*)(record+4));
   }
   for(int i=0; i < attrCount; i++){
     attributes[i].numDistinct = numDistinct[i].size();
-    //printf("num attributes: %d for index %d \n", attributes[i].numDistinct, i);
   }
 
 

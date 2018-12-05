@@ -105,7 +105,6 @@ RC IX_Manager::CreateIndex(const char *fileName, int indexNo,
         goto cleanup_and_exit; //on failure, delete the file
     }
 
-    printf("Before making the index !");
     // setup header page
     header->attr_type = attrType;
     header->attr_length = attrLength;
@@ -275,9 +274,6 @@ RC IX_Manager::CloseIndex(IX_IndexHandle &indexHandle)
         if((rc = indexHandle.pfh.MarkDirty(page)) || (rc = indexHandle.pfh.UnpinPage(page)))
             return (rc);
     }
-    memcpy(pData, &indexHandle.header, sizeof(struct IX_IndexHeader));
-    if((rc = indexHandle.pfh.MarkDirty(page)) || (rc = indexHandle.pfh.UnpinPage(page)))
-      return (rc);
 
     // Close the file
     if((rc = pfm.CloseFile(indexHandle.pfh)))
