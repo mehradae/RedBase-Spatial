@@ -41,7 +41,7 @@ s_num                [+\-]?{num}
 \"([^\"\n]|(\"\"))*\n       {printf("newline in string constant\n");}
 {letter}({letter}|{digit}|_)*       {return get_id(yylval.sval = yytext);}
 
-\[{s_num}\,{s_num}\,{s_num}\,{s_num}\] {sscanf(yytext, "(yylval.sval,[%d,%d,%d,%d])",
+\[{s_num}\,{s_num}\,{s_num}\,{s_num}\] {sscanf(yytext, "[%d,%d,%d,%d]",
                                         &yylval.mval.top_left_x, 
                                         &yylval.mval.top_left_y, 
                                         &yylval.mval.bottom_right_x, 

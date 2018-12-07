@@ -1,6 +1,6 @@
-#line 2 "/home/mehrad/workplace/redbase-spatial/src/scan.cpp"
+#line 2 "/home/mehrad/Projects/Redbase new/RedBase-Spatial/src/scan.cpp"
 
-#line 4 "/home/mehrad/workplace/redbase-spatial/src/scan.cpp"
+#line 4 "/home/mehrad/Projects/Redbase new/RedBase-Spatial/src/scan.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -503,9 +503,9 @@ char *yytext;
 static int get_id(char *s);   /* defined in scanhelp.c */
 static char *get_qstring(char *qstring, int len);
 
-#line 507 "/home/mehrad/workplace/redbase-spatial/src/scan.cpp"
+#line 507 "/home/mehrad/Projects/Redbase new/RedBase-Spatial/src/scan.cpp"
 
-#line 509 "/home/mehrad/workplace/redbase-spatial/src/scan.cpp"
+#line 509 "/home/mehrad/Projects/Redbase new/RedBase-Spatial/src/scan.cpp"
 
 #define INITIAL 0
 #define comment 1
@@ -726,7 +726,7 @@ YY_DECL
 	{
 #line 27 "src/scan.l"
 
-#line 730 "/home/mehrad/workplace/redbase-spatial/src/scan.cpp"
+#line 730 "/home/mehrad/Projects/Redbase new/RedBase-Spatial/src/scan.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -848,7 +848,7 @@ YY_RULE_SETUP
 case 12:
 YY_RULE_SETUP
 #line 44 "src/scan.l"
-{sscanf(yytext, "(yylval.sval,[%d,%d,%d,%d])",
+{sscanf(yytext, "[%d,%d,%d,%d]",
                                         &yylval.mval.top_left_x, 
                                         &yylval.mval.top_left_y, 
                                         &yylval.mval.bottom_right_x, 
@@ -932,7 +932,7 @@ YY_RULE_SETUP
 #line 65 "src/scan.l"
 ECHO;
 	YY_BREAK
-#line 936 "/home/mehrad/workplace/redbase-spatial/src/scan.cpp"
+#line 936 "/home/mehrad/Projects/Redbase new/RedBase-Spatial/src/scan.cpp"
 
 	case YY_END_OF_BUFFER:
 		{

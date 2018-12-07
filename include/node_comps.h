@@ -1,9 +1,16 @@
+#pragma once
+
+#ifndef  _NODE_COMPS_H_
+#define _NODE_COMPS_H_
+
 #include <unistd.h>
 #include <sys/types.h>
 #include "pf.h"
 #include <stdlib.h>
 #include <cstdio>
+#include "comparators.h"
 /*
+ *
  * The following functions are comparison functions that return 0 if 
  * the two objects are equal, <0 if the first value is smaller, and
  * >0 if the second value is smaller.
@@ -63,3 +70,15 @@ bool nnot_equal(void * value1, void * value2, AttrType attrtype, int attrLength)
       return (strncmp((char *) value1, (char *) value2, attrLength) != 0);
   }
 }
+
+
+bool nintersects(void * value1, void * value2, AttrType attrtype, int attrLength){
+  switch(attrtype){
+    case MBR: if (compare_mbr(value1, value2, attrLength) >= 0) return false;
+              else return true;
+    default:
+      return (strncmp((char *) value1, (char *) value2, attrLength) != 0);
+  }
+}
+
+#endif

@@ -781,10 +781,12 @@ RC QL_Manager::ParseConditions(int nConditions, const Condition conditions[]){
     }
     // If we are comparing attribute to a value
     if(!conditions[i].bRhsIsAttr){
+      std::cout<<"Before AttrCatEntryGet\n";
       // check that types are the same
       AttrCatEntry *entry;
       if((rc = GetAttrCatEntry(conditions[i].lhsAttr, entry)))
         return (rc);
+      std::cout<<"ERROR HERE?\n";
       if(entry->attrType != conditions[i].rhsValue.type)
         return (QL_BADCOND);
       // if it is a good condition add it to the condition list, associated it with

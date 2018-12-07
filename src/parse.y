@@ -556,10 +556,10 @@ op
    }
    ;
    | T_INTERSECTS
-      {
-         $$ = INTERSECTS_OP;
-      }
-      ;
+  {
+     $$ = INTERSECTS_OP;
+  }
+  ;
 
 nothing
    : /* epsilon */

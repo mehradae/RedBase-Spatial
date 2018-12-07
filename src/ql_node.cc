@@ -50,6 +50,7 @@ RC QL_Node::PrintCondition(const Condition condition){
     case LE_OP : cout << "<="; break;
     case GE_OP : cout << ">="; break;
     case NE_OP : cout << "!="; break;
+    case INTERSECTS_OP : cout << "INTERSECTS"; break;
     default: return (QL_BADCOND);
   }
   // If the RHS is an attribute, print it
@@ -67,6 +68,10 @@ RC QL_Node::PrintCondition(const Condition condition){
     }
     else if(condition.rhsValue.type == FLOAT){
       print_float(condition.rhsValue.data, 4);
+    }
+    else if (condition.rhsValue.type == MBR)
+    {
+      print_mbr(condition.rhsValue.data, sizeof(struct mbr));
     }
     else{
       print_string(condition.rhsValue.data, strlen((const char *)condition.rhsValue.data));
@@ -130,6 +135,7 @@ RC QL_Node::AddCondition(const Condition condition, int condNum){
     case LE_OP : condList[condIndex].comparator = &nless_than_or_eq_to; break;
     case GE_OP : condList[condIndex].comparator = &ngreater_than_or_eq_to; break;
     case NE_OP : condList[condIndex].comparator = &nnot_equal; break;
+    case INTERSECTS_OP : condList[condIndex].comparator = &nintersects; break;
     default: return (QL_BADCOND);
   }
   condsInNode[condIndex] = condNum;
