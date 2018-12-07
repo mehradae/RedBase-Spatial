@@ -500,7 +500,7 @@ RC SM_Manager::CreateIndex(const char *relName,
     return (rc);
   if((rc = relcatFH.ForcePages() || (rc = attrcatFH.ForcePages())))
     return (rc);
-  printf("%s\n", "\nIndexing Done..!!");
+  printf("%s\n", "Indexing Done..!!");
   return (0);
 }
 

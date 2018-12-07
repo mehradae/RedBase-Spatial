@@ -33,24 +33,24 @@ static int compare_float(void *value1, void* value2, int attrLength){
 //Adding MBR 
 static int compare_mbr(void *value1, void* value2, int attrLength){
   
-  mbr mbr1 = *(mbr *)value1; //MBR to insert
-  mbr mbr2 = *(mbr *)value2; //existing MBR
+  mbr MBRTuple = *(mbr *)value1; //existing MBR
+  mbr MBRQuery = *(mbr *)value2; //query MBR
 
   //If there is a node whose mbr contains the mbr to be inserted
-  if(mbr2.top_left_x == mbr1.top_left_x && mbr2.top_left_y == mbr1.top_left_y && mbr2.bottom_right_x == mbr1.bottom_right_x && mbr2.bottom_right_y == mbr1.bottom_right_y)
+  if(MBRQuery.top_left_x == MBRTuple.top_left_x && MBRQuery.top_left_y == MBRTuple.top_left_y && MBRQuery.bottom_right_x == MBRTuple.bottom_right_x && MBRQuery.bottom_right_y == MBRTuple.bottom_right_y)
     return 0;
-  else if(mbr2.top_left_x < mbr1.top_left_x && mbr2.top_left_y < mbr1.top_left_y && mbr2.bottom_right_x > mbr1.bottom_right_x && mbr2.bottom_right_y > mbr1.bottom_right_y)
+  else if(MBRQuery.top_left_x < MBRTuple.top_left_x && MBRQuery.top_left_y < MBRTuple.top_left_y && MBRQuery.bottom_right_x > MBRTuple.bottom_right_x && MBRQuery.bottom_right_y > MBRTuple.bottom_right_y)
     return -1;
   else
   {
     //Calculate original mbr area
-    int area = (mbr2.bottom_right_x - mbr2.top_left_x)*(mbr2.bottom_right_y - mbr2.top_left_y);
+    int area = (MBRQuery.bottom_right_x - MBRQuery.top_left_x)*(MBRQuery.bottom_right_y - MBRQuery.top_left_y);
     mbr newRect;
 
-    newRect.top_left_x = mbr1.top_left_x < mbr2.top_left_x ? mbr1.top_left_x : mbr2.top_left_x;
-    newRect.top_left_y = mbr1.top_left_y < mbr2.top_left_y ? mbr1.top_left_y : mbr2.top_left_y;
-    newRect.bottom_right_x = mbr1.bottom_right_x > mbr2.bottom_right_x ? mbr1.bottom_right_x : mbr2.bottom_right_x;
-    newRect.bottom_right_y = mbr1.bottom_right_y > mbr2.bottom_right_y ? mbr1.bottom_right_y : mbr2.bottom_right_y;
+    newRect.top_left_x = MBRTuple.top_left_x < MBRQuery.top_left_x ? MBRTuple.top_left_x : MBRQuery.top_left_x;
+    newRect.top_left_y = MBRTuple.top_left_y < MBRQuery.top_left_y ? MBRTuple.top_left_y : MBRQuery.top_left_y;
+    newRect.bottom_right_x = MBRTuple.bottom_right_x > MBRQuery.bottom_right_x ? MBRTuple.bottom_right_x : MBRQuery.bottom_right_x;
+    newRect.bottom_right_y = MBRTuple.bottom_right_y > MBRQuery.bottom_right_y ? MBRTuple.bottom_right_y : MBRQuery.bottom_right_y;
     //new area
     int newArea = (newRect.bottom_right_x - newRect.top_left_x)*(newRect.bottom_right_y - newRect.top_left_y);
 
