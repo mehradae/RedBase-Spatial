@@ -74,7 +74,7 @@ bool nnot_equal(void * value1, void * value2, AttrType attrtype, int attrLength)
 
 bool nintersects(void * value1, void * value2, AttrType attrtype, int attrLength){
   switch(attrtype){
-    case MBR: if (compare_mbr(value1, value2, attrLength) >= 0) return true;
+    case MBR: if (compare_mbr(value1, value2, attrLength) == 0) return true;
               else return false;
     default:
       return (strncmp((char *) value1, (char *) value2, attrLength) != 0);

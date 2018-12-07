@@ -36,26 +36,35 @@ static int compare_mbr(void *value1, void* value2, int attrLength){
   mbr MBRTuple = *(mbr *)value1; //existing MBR
   mbr MBRQuery = *(mbr *)value2; //query MBR
 
-  //If there is a node whose mbr contains the mbr to be inserted
-  if(MBRQuery.top_left_x == MBRTuple.top_left_x && MBRQuery.top_left_y == MBRTuple.top_left_y && MBRQuery.bottom_right_x == MBRTuple.bottom_right_x && MBRQuery.bottom_right_y == MBRTuple.bottom_right_y)
-    return 0;
-  else if(MBRQuery.top_left_x < MBRTuple.top_left_x && MBRQuery.top_left_y < MBRTuple.top_left_y && MBRQuery.bottom_right_x > MBRTuple.bottom_right_x && MBRQuery.bottom_right_y > MBRTuple.bottom_right_y)
-    return -1;
-  else
-  {
-    //Calculate original mbr area
-    int area = (MBRQuery.bottom_right_x - MBRQuery.top_left_x)*(MBRQuery.bottom_right_y - MBRQuery.top_left_y);
-    mbr newRect;
+         //Checking MBRs
+         // It covers all cases of intersection including equality and inclusion.
+    if ((MBRTuple.top_left_x > MBRQuery.top_left_x ? MBRTuple.top_left_x : MBRQuery.top_left_x) <=
+    (MBRTuple.bottom_right_x < MBRQuery.bottom_right_x ? MBRTuple.bottom_right_x : MBRQuery.bottom_right_x) &&
+    (MBRTuple.top_left_y > MBRQuery.top_left_y ? MBRTuple.top_left_y : MBRQuery.top_left_y) >=
+    (MBRTuple.bottom_right_y < MBRQuery.bottom_right_y ? MBRTuple.bottom_right_y : MBRQuery.bottom_right_y)) {
+        return 0;
+    } else return -1;
 
-    newRect.top_left_x = MBRTuple.top_left_x < MBRQuery.top_left_x ? MBRTuple.top_left_x : MBRQuery.top_left_x;
-    newRect.top_left_y = MBRTuple.top_left_y < MBRQuery.top_left_y ? MBRTuple.top_left_y : MBRQuery.top_left_y;
-    newRect.bottom_right_x = MBRTuple.bottom_right_x > MBRQuery.bottom_right_x ? MBRTuple.bottom_right_x : MBRQuery.bottom_right_x;
-    newRect.bottom_right_y = MBRTuple.bottom_right_y > MBRQuery.bottom_right_y ? MBRTuple.bottom_right_y : MBRQuery.bottom_right_y;
-    //new area
-    int newArea = (newRect.bottom_right_x - newRect.top_left_x)*(newRect.bottom_right_y - newRect.top_left_y);
 
-    return (newArea - area);
-  }
+//  if(MBRQuery.top_left_x == MBRTuple.top_left_x && MBRQuery.top_left_y == MBRTuple.top_left_y && MBRQuery.bottom_right_x == MBRTuple.bottom_right_x && MBRQuery.bottom_right_y == MBRTuple.bottom_right_y)
+//    return 0;
+//  else if(MBRQuery.top_left_x < MBRTuple.top_left_x && MBRQuery.top_left_y < MBRTuple.top_left_y && MBRQuery.bottom_right_x > MBRTuple.bottom_right_x && MBRQuery.bottom_right_y > MBRTuple.bottom_right_y)
+//    return -1;
+//  else
+//  {
+//    //Calculate original mbr area
+//    int area = (MBRQuery.bottom_right_x - MBRQuery.top_left_x)*(MBRQuery.bottom_right_y - MBRQuery.top_left_y);
+//    mbr newRect;
+//
+//    newRect.top_left_x = MBRTuple.top_left_x > MBRQuery.top_left_x ? MBRTuple.top_left_x : MBRQuery.top_left_x;
+//    newRect.top_left_y = MBRTuple.top_left_y > MBRQuery.top_left_y ? MBRTuple.top_left_y : MBRQuery.top_left_y;
+//    newRect.bottom_right_x = MBRTuple.bottom_right_x < MBRQuery.bottom_right_x ? MBRTuple.bottom_right_x : MBRQuery.bottom_right_x;
+//    newRect.bottom_right_y = MBRTuple.bottom_right_y < MBRQuery.bottom_right_y ? MBRTuple.bottom_right_y : MBRQuery.bottom_right_y;
+//    //new area
+//    int newArea = (newRect.bottom_right_x - newRect.top_left_x)*(newRect.bottom_right_y - newRect.top_left_y);
+//
+//    return (newArea - area);
+//  }
 
 }
 
