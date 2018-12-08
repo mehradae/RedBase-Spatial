@@ -45,27 +45,6 @@ static int compare_mbr(void *value1, void* value2, int attrLength){
         return 0;
     } else return -1;
 
-
-//  if(MBRQuery.top_left_x == MBRTuple.top_left_x && MBRQuery.top_left_y == MBRTuple.top_left_y && MBRQuery.bottom_right_x == MBRTuple.bottom_right_x && MBRQuery.bottom_right_y == MBRTuple.bottom_right_y)
-//    return 0;
-//  else if(MBRQuery.top_left_x < MBRTuple.top_left_x && MBRQuery.top_left_y < MBRTuple.top_left_y && MBRQuery.bottom_right_x > MBRTuple.bottom_right_x && MBRQuery.bottom_right_y > MBRTuple.bottom_right_y)
-//    return -1;
-//  else
-//  {
-//    //Calculate original mbr area
-//    int area = (MBRQuery.bottom_right_x - MBRQuery.top_left_x)*(MBRQuery.bottom_right_y - MBRQuery.top_left_y);
-//    mbr newRect;
-//
-//    newRect.top_left_x = MBRTuple.top_left_x > MBRQuery.top_left_x ? MBRTuple.top_left_x : MBRQuery.top_left_x;
-//    newRect.top_left_y = MBRTuple.top_left_y > MBRQuery.top_left_y ? MBRTuple.top_left_y : MBRQuery.top_left_y;
-//    newRect.bottom_right_x = MBRTuple.bottom_right_x < MBRQuery.bottom_right_x ? MBRTuple.bottom_right_x : MBRQuery.bottom_right_x;
-//    newRect.bottom_right_y = MBRTuple.bottom_right_y < MBRQuery.bottom_right_y ? MBRTuple.bottom_right_y : MBRQuery.bottom_right_y;
-//    //new area
-//    int newArea = (newRect.bottom_right_x - newRect.top_left_x)*(newRect.bottom_right_y - newRect.top_left_y);
-//
-//    return (newArea - area);
-//  }
-
 }
 
 static bool print_string(void *value, int attrLength){
