@@ -1,4 +1,4 @@
-#PLEASE NOTE: THIS PROJECT IS NOT FOR MSOL STUDENTS.
+
 
 ### Overview
 This project is a modified fork of the [Stanford Redbase.](https://web.stanford.edu/class/cs346/2015/redbase.html) We'll be working to implement the Indexing Component to add an [R-Tree](http://dl.acm.org/citation.cfm?id=602266) index to it. Please have a look at the instructions [here](https://payasr.github.io/redbase-spatial/).
